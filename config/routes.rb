@@ -1,4 +1,8 @@
 Foodbank::Application.routes.draw do
+  resources :roles
+
+  resources :organization_roles
+
   resources :units
 
   resources :products

@@ -1,0 +1,23 @@
+<h1>Listing organization_roles</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @organization_roles.each do |organization_role| %>
+  <tr>
+    <td><%= organization_role.name %></td>
+    <td><%= link_to 'Show', organization_role %></td>
+    <td><%= link_to 'Edit', edit_organization_role_path(organization_role) %></td>
+    <td><%= link_to 'Destroy', organization_role, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Organization role', new_organization_role_path %>
