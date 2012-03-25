@@ -1,4 +1,8 @@
 Foodbank::Application.routes.draw do
+  resources :units
+
+  resources :products
+
   resources :users
 
   resources :organizations

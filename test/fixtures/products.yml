@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  shelf_life: MyString
+  name: MyString
+  product_category_id: 1
+  unit_id: 1
+
+two:
+  shelf_life: MyString
+  name: MyString
+  product_category_id: 1
+  unit_id: 1
