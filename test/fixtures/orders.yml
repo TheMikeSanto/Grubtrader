@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  request_date: 2012-03-25
+  filled_date: 2012-03-25
+  user_id: 1
+
+two:
+  request_date: 2012-03-25
+  filled_date: 2012-03-25
+  user_id: 1

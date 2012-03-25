@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Order:</b>
+  <%= @order_line.order_id %>
+</p>
+
+<p>
+  <b>Inventory:</b>
+  <%= @order_line.inventory_id %>
+</p>
+
+<p>
+  <b>Quantity filled:</b>
+  <%= @order_line.quantity_filled %>
+</p>
+
+<p>
+  <b>Quantity requested:</b>
+  <%= @order_line.quantity_requested %>
+</p>
+
+
+<%= link_to 'Edit', edit_order_line_path(@order_line) %> |
+<%= link_to 'Back', order_lines_path %>
