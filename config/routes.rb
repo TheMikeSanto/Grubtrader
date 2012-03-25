@@ -1,4 +1,8 @@
 Foodbank::Application.routes.draw do
+  resources :donation_lines
+
+  resources :donations
+
   resources :orders
 
   resources :order_lines

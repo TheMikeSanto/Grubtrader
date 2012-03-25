@@ -1,0 +1,29 @@
+<%= form_for(@donation_line) do |f| %>
+  <% if @donation_line.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@donation_line.errors.count, "error") %> prohibited this donation_line from being saved:</h2>
+
+      <ul>
+      <% @donation_line.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :inventory_id %><br />
+    <%= f.number_field :inventory_id %>
+  </div>
+  <div class="field">
+    <%= f.label :donation_id %><br />
+    <%= f.number_field :donation_id %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity %><br />
+    <%= f.number_field :quantity %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

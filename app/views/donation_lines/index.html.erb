@@ -1,0 +1,27 @@
+<h1>Listing donation_lines</h1>
+
+<table>
+  <tr>
+    <th>Inventory</th>
+    <th>Donation</th>
+    <th>Quantity</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @donation_lines.each do |donation_line| %>
+  <tr>
+    <td><%= donation_line.inventory_id %></td>
+    <td><%= donation_line.donation_id %></td>
+    <td><%= donation_line.quantity %></td>
+    <td><%= link_to 'Show', donation_line %></td>
+    <td><%= link_to 'Edit', edit_donation_line_path(donation_line) %></td>
+    <td><%= link_to 'Destroy', donation_line, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Donation line', new_donation_line_path %>
