@@ -1,17 +1,44 @@
-<h2>Sign in</h2>
+<% @disable_sidebar = true %>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+<div class="mws-panel grid_8">
+	<div class="mws-panel-header">
+    	<span class="mws-i-24 i-list">Sign In</span>
+    </div>
+    <div class="mws-panel-body">
+		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), html: {class: "mws-form"}) do |f| %>
+			<div class="mws-form-row">
+				<label>Email address</label>
+				<div class="mws-form-item small">
+					<%= f.email_field :email, class: "mws-textinput" %>
+				</div>
+			</div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+			<div class="mws-form-row">
+				<label>Password</label>
+				<div class="mws-form-item small">
+					<%= f.password_field :password, class: "mws-textinput" %>
+				</div>
+			</div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
+			<div class="mws-form-row">
+				<label>Remember me</label>
+				<div class="mws-form-item clearfix">
+					<ul class="mws-form-list inline">
+						<li>
+							<%= f.check_box :remember_me %>
+						</li>
+					</ul>
+				</div>
+			</div>
 
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
+			<div class="mws-form-row">
+				<%= render "links" %>
+			</div>
 
-<%= render "links" %>
+  		<div class="mws-button-row">
+  			<%= f.submit "Sign in", class: "mws-button red" %>
+  			<input type="reset" value="Reset" class="mws-button gray" />
+  		</div>
+		<% end %>
+	</div>
+</div>
