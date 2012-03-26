@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120326000914) do
+ActiveRecord::Schema.define(:version => 20120326091330) do
 
   create_table "donation_lines", :force => true do |t|
     t.integer  "inventory_id"
@@ -77,6 +77,11 @@ ActiveRecord::Schema.define(:version => 20120326000914) do
     t.string   "name"
     t.integer  "product_category_id"
     t.integer  "unit_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reports", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
