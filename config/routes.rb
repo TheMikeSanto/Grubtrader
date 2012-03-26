@@ -1,4 +1,6 @@
 Foodbank::Application.routes.draw do
+  devise_for :users
+
   resources :donation_lines
 
   resources :donations
