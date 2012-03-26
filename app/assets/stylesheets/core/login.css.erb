@@ -6,7 +6,7 @@ body
 
 .mws-inset
 {
-	background-image:url(../../images/core/mws-inset.png);
+	background-image:url(<%= asset_path "mws-inset.png" %>);
 	
 	/* CSS 3 */
 	
@@ -26,7 +26,7 @@ body
 div#mws-login-wrapper
 {
 	width:302px;
-	left:50%; top:50%;
+	left:50%; top:300%;
 	margin-left:-151px;
 	margin-top:-133px;
 	position:absolute;
@@ -34,7 +34,7 @@ div#mws-login-wrapper
 
 div#mws-login
 {
-	background-image:url(../../images/core/mws-dark-bg.png);
+	background-image:url(<%= asset_path "mws-dark-bg.png" %>);
 	position:relative;
 	padding:12px 16px;
 	
@@ -62,14 +62,14 @@ div#mws-login h1
 	font-size:18px;
 	margin:0;
 	position:relative;
-	background-image:url(../../images/core/mws-login-stitch.png);
+	background-image:url(<%= asset_path "mws-login-stitch.png" %>);
 	background-repeat:repeat-x;
 	background-position: left bottom;
 }
 
 div#mws-login .mws-login-lock
 {
-	background-image:url(../../images/core/mws-login-circle.png);
+	background-image:url(<%= asset_path "mws-login-circle.png" %>);
 	background-repeat: no-repeat;
 	background-position: center center;
 	position:absolute;
@@ -88,7 +88,7 @@ div#mws-login .mws-login-lock
 
 div#mws-login form
 {
-	background-image:url(../../images/core/mws-login-stitch.png);
+	background-image:url(<%= asset_path "mws-login-stitch.png" %>);
 	background-repeat: repeat-x;
 	background-position: left bottom;
 	position:relative;
@@ -109,14 +109,14 @@ div#mws-login .mws-form-row
 
 div#mws-login input.mws-login-username
 {
-	background-image:url(../icons/16/user.png) !important;
+	background-image:url(<%= asset_path "user.png" %>) !important;
 	background-repeat:no-repeat;
 	background-position:8px center;
 }
 
 div#mws-login input.mws-login-password
 {
-	background-image:url(../icons/16/key.png) !important;
+	background-image:url(<%= asset_path "key.png" %>) !important;
 	background-repeat:no-repeat;
 	background-position:8px center;
 }

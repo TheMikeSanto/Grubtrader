@@ -1,44 +1,34 @@
 <% @disable_sidebar = true %>
 
-<div class="mws-panel grid_8">
-	<div class="mws-panel-header">
-    	<span class="mws-i-24 i-list">Sign In</span>
+<div id="mws-login-wrapper">
+	<div id="mws-login">
+    <h1>Sign In</h1>
+    <div class="mws-login-lock"><%= image_tag "locked-2.png" %></div>
+    <div id="mws-login-form">
+    	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), html: {class: "mws-form"}) do |f| %>
+        <div class="mws-form-row">
+          <div class="mws-form-item large">
+          	<%= f.email_field :email, class: "mws-login-username mws-textinput required", placeholder: "email" %>
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <div class="mws-form-item large">
+          	<%= f.password_field :password, class: "mws-login-password mws-textinput required", placeholder: "password" %>
+          </div>
+        </div>
+        <div class="mws-form-row mws-inset">
+            <ul class="mws-form-list inline">
+              <li>
+              	<%= f.check_box :remember_me %>
+              	<label>Remember me</label>
+              </li>
+            </ul>
+        </div>
+        <div class="mws-form-row">
+        	<%= f.submit "Login", class: "mws-button green mws-login-button" %>
+        </div>
+      <% end %>
     </div>
-    <div class="mws-panel-body">
-		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), html: {class: "mws-form"}) do |f| %>
-			<div class="mws-form-row">
-				<label>Email address</label>
-				<div class="mws-form-item small">
-					<%= f.email_field :email, class: "mws-textinput" %>
-				</div>
-			</div>
-
-			<div class="mws-form-row">
-				<label>Password</label>
-				<div class="mws-form-item small">
-					<%= f.password_field :password, class: "mws-textinput" %>
-				</div>
-			</div>
-
-			<div class="mws-form-row">
-				<label>Remember me</label>
-				<div class="mws-form-item clearfix">
-					<ul class="mws-form-list inline">
-						<li>
-							<%= f.check_box :remember_me %>
-						</li>
-					</ul>
-				</div>
-			</div>
-
-			<div class="mws-form-row">
-				<%= render "links" %>
-			</div>
-
-  		<div class="mws-button-row">
-  			<%= f.submit "Sign in", class: "mws-button red" %>
-  			<input type="reset" value="Reset" class="mws-button gray" />
-  		</div>
-		<% end %>
 	</div>
+	<%= render "links" %>
 </div>
