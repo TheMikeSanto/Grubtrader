@@ -12,7 +12,7 @@ body, #mws-header, #mws-wrapper
 
 .mws-inset
 {
-	background-image:url(../../images/core/mws-inset.png);
+	background-image:url(<%= asset_path "mws-inset.png" %>);
 	
 	/* CSS 3 */
 	
@@ -33,7 +33,7 @@ body, #mws-header, #mws-wrapper
 
 div#mws-header
 {
-	background-image:url(../../images/core/mws-header-bg.png);
+	background-image:url(<%= asset_path "mws-header-bg.png" %>);
 	background-repeat: repeat-x;
 	border-bottom:4px solid;
 	z-index:1;
@@ -107,7 +107,7 @@ div#mws-user-tools #mws-user-info #mws-user-photo
 	height:28px;
 	padding:2px;
 	float:left;
-	background:url(../../images/core/mws-user-pic-bg.png) repeat-x;
+	background:url(<%= asset_path "mws-user-pic-bg.png" %>) repeat-x;
 	position:relative;
 	
 	/* CSS 3 */
@@ -280,12 +280,12 @@ div#mws-user-tools .mws-dropdown-menu .mws-dropdown-box .mws-dropdown-content ul
 
 div#mws-user-tools .mws-dropdown-menu .mws-dropdown-box .mws-dropdown-content ul.mws-messages li.read a
 {
-	background:url(../icons/16/email_open.png) no-repeat 8px center;
+	background:url(<%= asset_path "email_open.png" %>) no-repeat 8px center;
 }
 
 div#mws-user-tools .mws-dropdown-menu .mws-dropdown-box .mws-dropdown-content ul.mws-messages li.unread a
 {
-	background:url(../icons/16/email.png) no-repeat 8px center #f0f0f0;
+	background:url(<%= asset_path "emai.png" %>) no-repeat 8px center #f0f0f0;
 }
 
 div#mws-user-tools .mws-dropdown-menu .mws-dropdown-box .mws-dropdown-content ul.mws-notifications li.unread a
@@ -374,7 +374,7 @@ div#mws-sidebar-stitch
 	left:189px;
 	width:17px;
 	z-index:2;
-	background:url(../../images/core/mws-sidebar-stitch.png) repeat-y;
+	background:url(<%= asset_path "mws-sidebar-stitch.png" %>) repeat-y;
 }
 
 div#mws-sidebar-bg
@@ -382,7 +382,7 @@ div#mws-sidebar-bg
 	left:0;
 	z-index:0;
 	width:198px;
-	background-image:url(../../images/core/mws-dark-bg.png);
+	background-image:url(<%= asset_path "mws-dark-bg.png" %>);
 }
 
 /* Search Box */
@@ -413,7 +413,7 @@ div#mws-searchbox .mws-search-submit
 	margin-left:144px;
 	border:none;
 	cursor:pointer;
-	background:url(../../images/core/mws-search-icon.png) no-repeat center center;
+	background:url(<%= asset_path "mws-search-icon.png" %>) no-repeat center center;
 	
 	/* CSS 3 */
 	
@@ -436,14 +436,14 @@ div#mws-navigation ul li
 div#mws-navigation ul
 {
 	padding-top:1px;
-	background:url(../../images/core/mws-nav-ruler.png) repeat-x left top;
+	background:url(<%= asset_path "mws-nav-ruler.png" %>) repeat-x left top;
 }
 
 div#mws-navigation ul li
 {
 	position:relative;
 	padding-bottom:2px;
-	background:url(../../images/core/mws-nav-ruler.png) repeat-x left bottom;
+	background:url(<%= asset_path "mws-nav-ruler.png" %>) repeat-x left bottom;
 }
 
 div#mws-navigation ul li a, 
@@ -486,7 +486,7 @@ div#mws-navigation ul li span.mws-nav-tooltip
 
 div#mws-navigation ul li ul
 {
-	background:url(../../images/core/mws-inset.png);
+	background:url(<%= asset_path "mws-inset.png" %>);
 	border:0;
 	/* CSS 3 */
 	
@@ -522,7 +522,7 @@ div#mws-navigation ul li ul li span
 
 div#mws-navigation ul li ul li:hover
 {
-	background:url(../../images/core/mws-sub-nav-bg.png);
+	background:url(<%= asset_path "mws-sub-nav-bg.png" %>);
 }
 
 /* Container */

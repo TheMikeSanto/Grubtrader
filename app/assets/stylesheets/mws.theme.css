@@ -1,10 +1,13 @@
 body, 
 div#mws-container
 {
-	background-image:url('../images/core/bg/paper.png');
+	background-image:url(<%= asset_path "paper.png" %>);
 }
 div#mws-container.sidebar_disabled{
 	margin-left: 0px !important;
+}
+div#mws-container.sidebar_disabled #mws-footer {
+
 }
 div#mws-sidebar-bg, 
 div#mws-header, 
