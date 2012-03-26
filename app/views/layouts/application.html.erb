@@ -5,7 +5,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,maximum-scale=1" />
     <%= stylesheet_link_tag "application" %>
-    <%= javascript_include_tag "application" %>
     <title>Food Bank for the Heartland</title>
   </head>
 
@@ -172,30 +171,26 @@
     <!-- Start Main Wrapper -->
     <div id="mws-wrapper">
     
-    	<% if user_signed_in? %>
+    	<% unless @disable_sidebar %>
 	     <%= render partial: "layouts/sidebar" %>
       <% end %>
 
         <!-- Main Container Start -->
-        <div id="mws-container" class="clearfix">
+        <div id="mws-container" class="clearfix <%= 'sidebar_disabled' if @disable_sidebar %>">
         
-        	<!-- Inner Container Start -->
-            <div class="container">
-            
-            	<%= yield %>
-                
-            </div>
-            <!-- Inner Container End -->
+      	 <!-- Inner Container Start -->
+          <div class="container">
+          	<%= yield %>   
+          </div>
+          <!-- Inner Container End -->
                        
-            <!-- Footer -->
-            <div id="mws-footer">
-            	Copyright Alternative Systems <%= Date.today.year %>. All Rights Reserved.
-            </div>
-            
+          <!-- Footer -->
+          <div id="mws-footer">
+          	Copyright Alternative Systems <%= Date.today.year %>. All Rights Reserved.
+          </div>  
         </div>
-        <!-- Main Container End -->
-        
-      </div>
-
+        <!-- Main Container End -->       
+    </div>
+    <%= javascript_include_tag "application" %>
   </body>
 </html>
