@@ -1,18 +1,54 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
-
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
+<div class="mws-panel grid_8">
+	<div class="mws-panel-header">
+    	<span class="mws-i-24 i-list">Register</span>
+    </div>
+    <div class="mws-panel-body">
+    	<%= devise_error_messages! %>
+    	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: {class: "mws-form"}) do |f| %>
+    		<div class="mws-form-inline">
+    			<div class="mws-form-row">
+    				<label>First name</label>
+    				<div class="mws-form-item medium">
+    					<%= f.text_field :fname, class: "mws-textinput" %>
+  					</div>
+					</div>
+					<div class="mws-form-row">
+    				<label>Last name</label>
+    				<div class="mws-form-item medium">
+    					<%= f.text_field :fname, class: "mws-textinput" %>
+  					</div>
+					</div>
+    			<div class="mws-form-row">
+    				<label>Email address</label>
+    				<div class="mws-form-item small">
+    					<%= f.email_field :email, class: "mws-textinput" %>
+    				</div>
+    			</div>
+    			<div class="mws-form-row">
+    				<label>Phone number</label>
+    				<div class="mws-form-item small">
+    					<%= f.telephone_field :phone, class: "mws-textinput" %>
+  					</div>
+					</div>
+    			<div class="mws-form-row">
+    				<label>Password</label>
+    				<div class="mws-form-item small">
+  						<%= f.password_field :password, class: "mws-textinput" %>
+    				</div>
+    			</div>
+    			<div class="mws-form-row">
+    				<label>Confirm password</label>
+    				<div class="mws-form-item small">
+							<%= f.password_field :password_confirmation, class: "mws-textinput" %>
+    				</div>
+    			</div>
+		  		<div class="mws-button-row">
+		  			<%= f.submit "Sign up", class: "mws-button red" %>
+		  			<input type="reset" value="Reset" class="mws-button gray" />
+		  		</div>
+	  		</div>
+    	<% end %>
+    </div>    	
+</div>
 
 <%= render "links" %>
