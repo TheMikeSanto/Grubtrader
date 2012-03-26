@@ -13,7 +13,6 @@
   	<div id="mws-header" class="clearfix">
     	<!-- Logo Container -->
     	<div id="mws-logo-container">
-      	<!-- Logo Wrapper, images put within this wrapper will always be vertically centered -->
       	<div id="mws-logo-wrap">
           	<%= image_tag "foodbank_logo.jpg" %>
 		     </div>
@@ -146,23 +145,21 @@
             
             <!-- User Information and functions section -->
             <div id="mws-user-info" class="mws-inset">
-            
             	<!-- User Photo -->
             	<div id="mws-user-photo">
                   <%= image_tag "profile.jpg" %>
-                </div>
+              </div>
                 
-                <!-- Username and Functions -->
-                <div id="mws-user-functions">
-                    <div id="mws-username">
-                        Hello, <%= current_user.name %>
-                    </div>
-                    <ul>
-                    	<li><a href="#">Profile</a></li>
-                        <li><a href="#">Change Password</a></li>
-                        <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
-                    </ul>
-                </div>
+              <!-- Username and Functions -->
+              <div id="mws-user-functions">
+                  <div id="mws-username">
+                    Hello, <%= current_user.name %>
+                  </div>
+                  <ul>
+                  	<li><a href="#">Profile</a></li>
+                      <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+                  </ul>
+              </div>
             </div>
           <% end %>
           </div>
@@ -170,26 +167,19 @@
     
     <!-- Start Main Wrapper -->
     <div id="mws-wrapper">
-    
     	<% unless @disable_sidebar %>
 	     <%= render partial: "layouts/sidebar" %>
       <% end %>
 
-        <!-- Main Container Start -->
-        <div id="mws-container" class="clearfix <%= 'sidebar_disabled' if @disable_sidebar %>">
-        
-      	 <!-- Inner Container Start -->
-          <div class="container">
-          	<%= yield %>   
-          </div>
-          <!-- Inner Container End -->
-                       
-          <!-- Footer -->
-          <div id="mws-footer">
-          	Copyright Alternative Systems <%= Date.today.year %>. All Rights Reserved.
-          </div>  
+      <div id="mws-container" class="clearfix <%= 'sidebar_disabled' if @disable_sidebar %>">
+        <div class="container">
+        	<%= yield %>   
         </div>
-        <!-- Main Container End -->       
+                     
+        <div id="mws-footer">
+        	Copyright Alternative Systems <%= Date.today.year %>. All Rights Reserved.
+        </div>  
+      </div>
     </div>
     <%= javascript_include_tag "application" %>
   </body>
