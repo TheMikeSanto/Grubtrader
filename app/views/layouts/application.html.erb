@@ -156,8 +156,8 @@
                     Hello, <%= current_user.name %>
                   </div>
                   <ul>
-                  	<li><a href="#">Profile</a></li>
-                      <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+                  	<li><%= link_to "Settings", user_path(current_user) %></li>
+                    <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
                   </ul>
               </div>
             </div>
