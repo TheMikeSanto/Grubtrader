@@ -3,7 +3,9 @@ div#mws-container
 {
 	background-image:url('../images/core/bg/paper.png');
 }
-
+div#mws-container.sidebar_disabled{
+	margin-left: 0px !important;
+}
 div#mws-sidebar-bg, 
 div#mws-header, 
 .mws-panel .mws-panel-header, 
