@@ -1,37 +1,39 @@
-<h1>Listing organizations</h1>
+<div class="mws-panel grid_8">
+  <div class="mws-panel-header main_header">
+    <span class="mws-i-24 i-companies">Organizations</span>
+  </div>
+  <div class="mws-panel-body">
+    <table class="mws-datatable-fn mws-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>State</th>
+                <th>City</th>
+                <th>Street</th>
+                <th>Zip</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+          <% @organizations.each do |organization| %>
+            <tr class="gradeX">
+                <td><%= organization.name %></td>
+                <td><%= organization.state %></td>
+                <td><%= organization.city %></td>
+                <td><%= organization.street %></td>
+                <td><%= organization.zip %></td>
+                <td><%= organization.phone %></td>
+                <td><%= organization.email %></td>                
+                <td><%= link_to 'Show', organization %>
+                    <%= link_to 'Edit', edit_organization_path(organization) %>
+                    <%= link_to 'Destroy', organization, confirm: 'Are you sure?', method: :delete %></td>
+            </tr>
+          <% end %>
+        </tbody>
+    </table>
+  </div>
+</div>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>State</th>
-    <th>City</th>
-    <th>Street</th>
-    <th>Zip</th>
-    <th>Phone</th>
-    <th>Email</th>
-    <th>Role</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @organizations.each do |organization| %>
-  <tr>
-    <td><%= organization.name %></td>
-    <td><%= organization.state %></td>
-    <td><%= organization.city %></td>
-    <td><%= organization.street %></td>
-    <td><%= organization.zip %></td>
-    <td><%= organization.phone %></td>
-    <td><%= organization.email %></td>
-    <td><%= organization.role_id %></td>
-    <td><%= link_to 'Show', organization %></td>
-    <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
-    <td><%= link_to 'Destroy', organization, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Organization', new_organization_path %>
+<%= link_to 'Add organization', new_organization_path %>
