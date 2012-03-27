@@ -1,25 +1,35 @@
-<h1>Listing donations</h1>
+<div class="mws-panel grid_8">
+  <div class="mws-panel-header main_header">
+    <span class="mws-i-24 i-table-1">Donations</span>
+  </div>
+  <div class="mws-panel-body">
+    <table class="mws-datatable-fn mws-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Organization</th>
+                <th>User</th>
+                <th>Amount</th>
+                <th>Product</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+          <% @donations.each do |donation| %>
+            <tr class="gradeX">
+                <td><%= donation.date %></td>
+                <td><%= donation.user.organization.name %></td>
+                <td><%= donation.user.name %></td>
+                <td>40</td>
+                <td>Carrots</td>
+                <td><%= link_to 'Show', donation %>
+                    <%= link_to 'Edit', edit_donation_path(donation) %>
+                    <%= link_to 'Destroy', donation, confirm: 'Are you sure?', method: :delete %></td>
+            </tr>
+          <% end %>
+        </tbody>
+    </table>
+  </div>
+</div>
 
-<table>
-  <tr>
-    <th>User</th>
-    <th>Date</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @donations.each do |donation| %>
-  <tr>
-    <td><%= donation.user_id %></td>
-    <td><%= donation.date %></td>
-    <td><%= link_to 'Show', donation %></td>
-    <td><%= link_to 'Edit', edit_donation_path(donation) %></td>
-    <td><%= link_to 'Destroy', donation, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Donation', new_donation_path %>
+<%= link_to 'Donate', new_donation_path %>

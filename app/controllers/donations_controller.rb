@@ -41,6 +41,7 @@ class DonationsController < ApplicationController
   # POST /donations.json
   def create
     @donation = Donation.new(params[:donation])
+    @donation.user = current_user
 
     respond_to do |format|
       if @donation.save
