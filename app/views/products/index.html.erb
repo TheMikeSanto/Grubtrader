@@ -18,7 +18,7 @@
             <tr class="gradeX">
                 <td><%= product.name %></td>
                 <td><%= product.shelf_life %></td>
-                <td>Some Category</td>
+                <td><%= product.product_category_id %></td>
                 <td><%= product.unit_id %>
                 <td><%= link_to 'Show', product %>
                     <%= link_to 'Edit', edit_product_path(product) %>
