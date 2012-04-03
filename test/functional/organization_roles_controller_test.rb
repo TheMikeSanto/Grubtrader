@@ -1,7 +1,13 @@
 require 'test_helper'
 
 class OrganizationRolesControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
   setup do
+    @user = users(:one)
+    @organization = organizations(:one)
+    @user.update_attribute(:organization_id, @organization.id)
+    sign_in @user
     @organization_role = organization_roles(:one)
   end
 

@@ -1,10 +1,16 @@
 require 'test_helper'
 
 class OrganizationsControllerTest < ActionController::TestCase
-  setup do
-    @organization = organizations(:one)
-  end
+  include Devise::TestHelpers
 
+  setup do
+    @user = users(:one)
+    @organization = organizations(:one)
+    @user.update_attribute(:organization_id, @organization.id)
+    sign_in @user
+    @organizations = organizations(:one)
+  end
+  
   test "should get index" do
     get :index
     assert_response :success
