@@ -1,19 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  fname: MyString
-  lname: MyString
-  email: MyString
-  phone: 1
-  active: false
+  fname: Mike
+  lname: Santo
+  email: mike@santo.com
+  phone: 1234567
+  active: true
   role_id: 1
   organization_id: 1
 
 two:
-  fname: MyString
-  lname: MyString
-  email: MyString
+  fname: John
+  lname: Smith
+  email: john@smith.com
   phone: 1
-  active: false
+  active: true
   role_id: 1
   organization_id: 1

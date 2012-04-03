@@ -1,21 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  state: MyString
-  city: MyString
-  street: MyString
-  zip: MyString
-  phone: 1
-  email: MyString
-  role_id: 1
+  name: Blackburn
+  state: Nebraska
+  city: Omaha
+  street: 123 Fake St
+  zip: 12345
+  phone: 4021234567
+  email: blacburn@ops.org
+  role_id: 2
 
 two:
-  name: MyString
-  state: MyString
-  city: MyString
-  street: MyString
-  zip: MyString
-  phone: 1
-  email: MyString
+  name: FoodBank
+  state: Omaha
+  city: Nebraska
+  street: 456 Fake St
+  zip: 12345
+  phone: 4029876543
+  email: bank@thefood.org
   role_id: 1
