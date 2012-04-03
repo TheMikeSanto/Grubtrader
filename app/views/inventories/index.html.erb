@@ -6,7 +6,6 @@
     <table class="mws-datatable-fn mws-table">
         <thead>
             <tr>
-                <th>Organization</th>
                 <th>Picked Date</th>
                 <th>Product</th>
                 <th>On Hand</th>
@@ -16,7 +15,6 @@
         <tbody>
           <% @inventories.each do |inventory| %>
             <tr class="gradeX">
-                <td><%= inventory.organization.name %></td>
                 <td><%= inventory.picked_date %></td>
                 <td><%= inventory.product.name %></td>
                 <td><%= inventory.on_hand %></td>      
