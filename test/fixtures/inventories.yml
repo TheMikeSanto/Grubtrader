@@ -3,9 +3,9 @@
 one:
   picked_date: 2012-03-25
   on_hand: 1
-  product_id: 1
+  product: one
 
 two:
   picked_date: 2012-03-25
   on_hand: 1
-  product_id: 1
+  product: one
