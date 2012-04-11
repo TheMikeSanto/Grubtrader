@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :fname, :lname,
                   :phone, :active, :role_id, :organization_id
 
-  validates_presence_of :email, :fname, :lname
+  validates_presence_of :email, :fname, :lname, :role_id, :organization_id
 
   belongs_to :role
   belongs_to :organization
