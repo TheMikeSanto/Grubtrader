@@ -18,4 +18,8 @@ class User < ActiveRecord::Base
   def name
   	fname + " " + lname
   end
+
+  def is_admin?
+    Role.find(role_id).name == "Admin"
+  end
 end
