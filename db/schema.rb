@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120326091330) do
+ActiveRecord::Schema.define(:version => 20120411025917) do
 
   create_table "donation_lines", :force => true do |t|
     t.integer  "inventory_id"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20120326091330) do
     t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "organization_id"
   end
 
   create_table "inventories", :force => true do |t|
