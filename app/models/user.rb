@@ -20,6 +20,14 @@ class User < ActiveRecord::Base
   end
 
   def is_admin?
-    Role.find(role_id).name == "Admin"
+    Role.find(role_id).name == "Administrator"
+  end
+
+  def is_producer?
+    Organization.find(organization_id).organization_role.name == "Producer"
+  end
+
+  def is_distributor?
+    Organization.find(organization_id).organization_role.name == "Distributor"
   end
 end
