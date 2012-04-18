@@ -15,39 +15,39 @@
   <!-- Main Navigation -->
   <div id="mws-navigation">
   	<ul>
-    	<li class="<%= active_page_class("dashboard") %>"><%= link_to "Dashboard", root_path, class: "mws-i-24 i-home" %></li>
+  	  <li class="<%= active_page_class("dashboard") %>"><%= link_to "Dashboard", root_path, class: "mws-i-24 i-home" %></li>
 
       <% if can? :view, Order %>
     	 <li class="<%= active_page_class("orders") %>"><%= link_to "Orders", orders_path, class: "mws-i-24 i-shopping-cart-4" %></li>
       <% end %>
 
       <% if can? :view, Donation %>
-    	 <li class="<%= active_page_class("donations") %>"><%= link_to "Donations", donations_path, class: "mws-i-24 i-plus" %></li>
-     <% end %>
+      	 <li class="<%= active_page_class("donations") %>"><%= link_to "Donations", donations_path, class: "mws-i-24 i-plus" %></li>
+      <% end %>
 
-     <% if can? :view, Inventory %>
-      <li class="<%= active_page_class("inventories") %>"><%= link_to "Inventory", inventories_path, class: "mws-i-24 i-dropbox" %></li>
-    <% end %>
+      <% if can? :view, Inventory %>
+        <li class="<%= active_page_class("inventories") %>"><%= link_to "Inventory", inventories_path, class: "mws-i-24 i-dropbox" %></li>
+      <% end %>
 
-    <% if can? :view, Report %>
-      <li class="<%= active_page_class("reports") %>"><%= link_to "Reports", new_report_path, class: "mws-i-24 i-graph" %></li>
-    <% end %>
+      <% if can? :view, Organization %>
+        <li class="<%= active_page_class("organizations") %>"><%= link_to "Organizations", organizations_path, class: "mws-i-24 i-companies" %></li>
+      <% end %>
 
-    <% if can? :view, Product %>
-      <li class="<%= active_page_class("products") %>"><%= link_to "Products", products_path, class: "mws-i-24 i-leaf" %></li>
-    <% end %>
+      <% if can? :view, Product %>
+        <li class="<%= active_page_class("products") %>"><%= link_to "Products", products_path, class: "mws-i-24 i-leaf" %></li>
+      <% end %>
 
-    <% if can? :view, Organization %>
-      <li class="<%= active_page_class("organizations") %>"><%= link_to "Organizations", organizations_path, class: "mws-i-24 i-companies" %></li>
-    <% end %>
+      <% if can? :view, User %>
+        <li class="<%= active_page_class("users") %>"><%= link_to "Users", users_path, class: "mws-i-24 i-group-2" %></li>
+      <% end %>
 
-    <% if can? :view, User %>
-      <li class="<%= active_page_class("users") %>"><%= link_to "Users", users_path, class: "mws-i-24 i-group-2" %></li>
-    <% end %>
+      <% if can? :view, Role %>
+        <li class="<%= active_page_class("roles") %>"><%= link_to "Settings", roles_path, class: "mws-i-24 i-settings-2" %></li>
+      <% end %>
 
-    <% if can? :view, Role %>
-      <li class="<%= active_page_class("roles") %>"><%= link_to "Settings", roles_path, class: "mws-i-24 i-settings-2" %></li>
-    <% end %>
+      <% if can? :view, Report %>
+        <li class="<%= active_page_class("reports") %>"><%= link_to "Reports", new_report_path, class: "mws-i-24 i-graph" %></li>
+      <% end %>
     </ul>
   </div>            
 </div>
