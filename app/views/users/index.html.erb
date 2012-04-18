@@ -26,9 +26,17 @@
                 <td><%= user.phone %></td>
                 <td><%= user.active ? "yes": "no" %></td>
                 <td><%= user.role.name %></td>             
-                <td><%= link_to 'Show', user %>
+                <td>
+                  <% if can? :view, user %>
+                    <%= link_to 'View', user %>
+                  <% end %>
+                  <% if can? :edit, user %>
                     <%= link_to 'Edit', edit_user_path(user) %>
-                    <%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>
+                  <% end %>
+                  <% if can? :destroy, user %>
+                    <%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %>
+                  <% end %>
+                </td> 
             </tr>
           <% end %>
         </tbody>

@@ -26,9 +26,19 @@
                 <td><%= organization.zip %></td>
                 <td><%= organization.phone %></td>
                 <td><%= organization.email %></td>                
-                <td><%= link_to 'Show', organization %>
-                    <%= link_to 'Edit', edit_organization_path(organization) %>
-                    <%= link_to 'Destroy', organization, confirm: 'Are you sure?', method: :delete %></td>
+                <td>
+                    <% if can? :view, organization %>
+                      <%= link_to 'Show', organization %>
+                    <% end %>
+
+                    <% if can? :update, organization %>
+                      <%= link_to 'Edit', edit_organization_path(organization) %>
+                    <% end %>
+
+                    <% if can? :destroy, organization %>
+                      <%= link_to 'Destroy', organization, confirm: 'Are you sure?', method: :delete %>
+                    <% end %>
+                </td>
             </tr>
           <% end %>
         </tbody>
