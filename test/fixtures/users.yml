@@ -1,6 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
+admin1:
   fname: Mike
   lname: Santo
   email: mike@santo.com
@@ -9,7 +9,7 @@ one:
   role: admin
   organization: two
 
-two:
+user1:
   fname: John
   lname: Smith
   email: john@smith.com
@@ -18,7 +18,7 @@ two:
   role: user
   organization: one
 
-three:
+user2:
   fname: Jane
   lname: Doe
   email: jane@doe.com
