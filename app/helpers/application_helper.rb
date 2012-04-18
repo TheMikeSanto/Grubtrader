@@ -7,4 +7,8 @@ module ApplicationHelper
 		return "success" if flash.first[0].to_s == "notice"
 		"error"
 	end
+
+	def options_for_organization_select
+		Organization.scoped.map{ |org| [org.name, org.id]}
+	end
 end

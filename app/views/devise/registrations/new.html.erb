@@ -10,19 +10,19 @@
     		<div class="mws-form-inline">
     			<div class="mws-form-row">
     				<label>First name</label>
-    				<div class="mws-form-item small">
+    				<div class="mws-form-item medium">
     					<%= f.text_field :fname, class: "mws-textinput" %>
   					</div>
 				</div>
 				<div class="mws-form-row">
     				<label>Last name</label>
-    				<div class="mws-form-item small">
+    				<div class="mws-form-item medium">
     					<%= f.text_field :lname, class: "mws-textinput" %>
   					</div>
 				</div>
     			<div class="mws-form-row">
     				<label>Email address</label>
-    				<div class="mws-form-item small">
+    				<div class="mws-form-item medium">
     					<%= f.email_field :email, class: "mws-textinput" %>
     				</div>
     			</div>
@@ -31,7 +31,16 @@
     				<div class="mws-form-item small">
     					<%= f.telephone_field :phone, class: "mws-textinput" %>
   					</div>
-					</div>
+				  </div>
+          <div class="mws-form-row">
+            <label>Organization</label>
+            <div class="mws-form-item small">
+              <%= f.select :organization_id,  options_for_organization_select %>
+              <div class="mws-info">
+               Select the organization that you are associated with. If your organization isn't on this list, create one.
+            </div>
+          </div>
+          </div>
     			<div class="mws-form-row">
     				<label>Password</label>
     				<div class="mws-form-item small">
