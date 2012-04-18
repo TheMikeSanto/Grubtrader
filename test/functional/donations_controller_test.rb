@@ -4,7 +4,7 @@ class DonationsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
   setup do
-    @user = users(:one)
+    @user = users(:user1)
     sign_in @user
     @donation = donations(:one)
   end

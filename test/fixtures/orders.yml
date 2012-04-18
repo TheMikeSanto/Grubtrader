@@ -3,9 +3,9 @@
 one:
   request_date: 2012-03-25
   filled_date: 2012-03-25
-  user: one
+  user: user1
 
 two:
   request_date: 2012-03-25
   filled_date: 2012-03-25
-  user: one
+  user: user1

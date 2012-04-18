@@ -4,7 +4,7 @@ class InventoriesControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
   setup do
-    @user = users(:one)
+    @user = users(:user1)
     sign_in @user
     @inventory = inventories(:one)
   end

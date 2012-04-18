@@ -4,7 +4,7 @@ class ReportsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
   setup do
-    @user = users(:one)
+    @user = users(:user1)
     @organization = organizations(:one)
     @user.update_attribute(:organization_id, @organization.id)
     sign_in @user
