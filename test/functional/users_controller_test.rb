@@ -4,8 +4,8 @@ class UsersControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
   setup do
-    @user         = users(:one)
-    @user2        = users(:two)
+    @user         = users(:user1)
+    @admin        = users(:admin1)
     @organization = organizations(:one)
 
     @user.update_attribute(:organization_id, @organization.id)
@@ -24,9 +24,9 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should create user" do
-    @user2.destroy  # Emails must be valid so we have to kill user2 before we resurrect him
+    @user.destroy  # Emails must be valid so we have to kill user2 before we resurrect him
     assert_difference('User.count') do
-      post :create, user: @user2.attributes.merge!({password: 'asdf1234', password_confirmation: 'asdf1234'})
+      post :create, user: @user.attributes.merge!({password: 'asdf1234', password_confirmation: 'asdf1234'})
     end
 
     assert_redirected_to user_path(assigns(:user))
