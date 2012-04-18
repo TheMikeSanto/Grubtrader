@@ -8,7 +8,7 @@ one:
   zip: 12345
   phone: 4021234567
   email: blacburn@ops.org
-  role_id: 2
+  organization_role: one
 
 two:
   name: FoodBank
@@ -18,4 +18,4 @@ two:
   zip: 12345
   phone: 4029876543
   email: bank@thefood.org
-  role_id: 1
+  organization_role: two
