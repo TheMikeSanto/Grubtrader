@@ -2,7 +2,7 @@
 
 <div class="mws-panel grid_8">
 	<div class="mws-panel-header">
-    	<span class="mws-i-24 i-list">Register</span>
+    	<span class="mws-i-24">Register</span>
     </div>
     <div class="mws-panel-body">
     	<%= devise_error_messages! %>
@@ -20,46 +20,45 @@
     					<%= f.text_field :lname, class: "mws-textinput" %>
   					</div>
 				</div>
-    			<div class="mws-form-row">
-    				<label>Email address</label>
-    				<div class="mws-form-item medium">
-    					<%= f.email_field :email, class: "mws-textinput" %>
-    				</div>
-    			</div>
-    			<div class="mws-form-row">
-    				<label>Phone number</label>
-    				<div class="mws-form-item small">
-    					<%= f.telephone_field :phone, class: "mws-textinput" %>
-  					</div>
-				  </div>
-          <div class="mws-form-row">
-            <label>Organization</label>
-            <div class="mws-form-item small">
-              <%= f.select :organization_id,  options_for_organization_select %>
-              <div class="mws-info">
-               Select the organization that you are associated with. If your organization isn't on this list, create one.
-            </div>
+  			<div class="mws-form-row">
+  				<label>Email address</label>
+  				<div class="mws-form-item medium">
+  					<%= f.email_field :email, class: "mws-textinput" %>
+  				</div>
+  			</div>
+        <div class="mws-form-row">
+          <label>Phone number</label>
+          <div class="mws-form-item small">
+            <%= f.telephone_field :phone, class: "mws-textinput" %>
           </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Password</label>
+          <div class="mws-form-item small">
+            <%= f.password_field :password, class: "mws-textinput" %>
           </div>
-    			<div class="mws-form-row">
-    				<label>Password</label>
-    				<div class="mws-form-item small">
-  						<%= f.password_field :password, class: "mws-textinput" %>
-    				</div>
-    			</div>
-    			<div class="mws-form-row">
-    				<label>Confirm password</label>
-    				<div class="mws-form-item small">
-							<%= f.password_field :password_confirmation, class: "mws-textinput" %>
-    				</div>
-    			</div>
-		  		<div class="mws-button-row">
-		  			<%= f.submit "Sign up", class: "mws-button red" %>
-		  			<input type="reset" value="Reset" class="mws-button gray" />
-		  		</div>
+        </div>
+        <div class="mws-form-row">
+          <label>Confirm password</label>
+          <div class="mws-form-item small">
+            <%= f.password_field :password_confirmation, class: "mws-textinput" %>
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Organization</label>
+          <div class="mws-form-item small">
+            <%= f.select :organization_id,  options_for_organization_select %>
+            <div class="mws-info">
+             Select the organization that you are associated with. If your organization isn't on this list, create one.
+          </div>
+        </div>
+	  		<div class="mws-button-row">
+	  			<%= f.submit "Sign up", class: "mws-button red" %>
+	  			<input type="reset" value="Reset" class="mws-button gray" />
 	  		</div>
-    	<% end %>
-    </div>    	
+	  	</div>
+    <% end %>
+  </div>    	
 </div>
 
 <%= render "links" %>
