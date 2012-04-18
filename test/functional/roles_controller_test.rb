@@ -8,7 +8,7 @@ class RolesControllerTest < ActionController::TestCase
     @organization = organizations(:one)
     @user.update_attribute(:organization_id, @organization.id)
     sign_in @user
-    @role = roles(:one)
+    @role = roles(:user)
   end
 
   test "should get index" do
