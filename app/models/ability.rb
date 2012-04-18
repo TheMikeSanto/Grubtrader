@@ -7,6 +7,8 @@ class Ability
     can :create, User
     can [:read, :update], User, id: user.id
 
+    can [:create, :read], Organization
+
     if user.is_producer?
       can :manage, Donation, organization_id: user.organization_id
     end
