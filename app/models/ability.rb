@@ -15,6 +15,12 @@ class Ability
 
     if user.is_distributor?
       can :manage, Order, organization_id: user.organization_id
+      can :view, Donation
+      can :manage, Report
+      can :manage, Inventory
+      can :view, Product
+      can :view, Organization
+      can [:create, :update], Organization, organization_id: user.organization_id
     end
 
     if user.is_admin?
