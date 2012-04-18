@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   has_many :donations
   has_many :orders
 
+  before_create :set_role_id
+
   def name
   	fname + " " + lname
   end
@@ -29,5 +31,13 @@ class User < ActiveRecord::Base
 
   def is_distributor?
     Organization.find(organization_id).organization_role.name == "Distributor"
+  end
+
+  def set_role_id
+    if self.organization.users == 0
+      self.role_id = Role.admin_role_id
+    else
+      self.role_id = Role.user_role_id
+    end
   end
 end
