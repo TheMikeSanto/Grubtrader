@@ -7,12 +7,21 @@ one:
   phone: 1234567
   active: true
   role: admin
-  organization: one
+  organization: two
 
 two:
   fname: John
   lname: Smith
   email: john@smith.com
+  phone: 1
+  active: true
+  role: user
+  organization: one
+
+three:
+  fname: Jane
+  lname: Doe
+  email: jane@doe.com
   phone: 1
   active: true
   role: user
