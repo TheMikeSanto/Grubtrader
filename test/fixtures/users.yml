@@ -16,7 +16,7 @@ user1:
   phone: 1
   active: true
   role: user
-  organization: one
+  organization: two
 
 user2:
   fname: Jane
