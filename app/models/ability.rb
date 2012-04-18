@@ -24,6 +24,7 @@ class Ability
 
     if user.is_admin?
       can :manage, :all
+      cannot [:update, :destroy, :create], Role
     end
   end
 end
