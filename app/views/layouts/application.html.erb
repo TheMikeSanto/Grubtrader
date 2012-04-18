@@ -17,6 +17,16 @@
           <%= image_tag "foodbank_logo.jpg" %>
 		     </div>
       </div>
+      
+      <% unless flash.empty? %>
+        <div id="notifications" class="mws-form-message <%= flash_status(flash) %>">
+          <% flash.each do |key, value| %>
+            <div class="message <%= key %>">
+              <%= value %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
         
       <% if user_signed_in? %>
         <!-- User Tools (notifications, logout, profile, change password) -->
@@ -172,15 +182,7 @@
       <% end %>
 
       <div id="mws-container" class="clearfix <%= 'sidebar_disabled' if @disable_sidebar %>">
-        <% unless flash.empty? %>
-          <div id="notifications" class="mws-form-message <%= flash_status(flash) %>">
-            <% flash.each do |key, value| %>
-              <div class="message <%= key %>">
-                <%= value %>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
+
 
         <div class="container">
         	<%= yield %>   

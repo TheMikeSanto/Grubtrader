@@ -7,3 +7,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function() {
+	if ($("#notifications").length > 0) {
+		console.log("word");
+		setTimeout(function() {
+			$("#notifications").fadeOut("slow");
+		}, 5000);
+	}
+})
