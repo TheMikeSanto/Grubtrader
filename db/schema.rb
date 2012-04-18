@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120418061637) do
+ActiveRecord::Schema.define(:version => 20120418063024) do
 
   create_table "donation_lines", :force => true do |t|
     t.integer  "inventory_id"
@@ -103,7 +103,6 @@ ActiveRecord::Schema.define(:version => 20120418061637) do
     t.string   "fname"
     t.string   "lname"
     t.string   "email"
-    t.integer  "phone"
     t.boolean  "active"
     t.integer  "role_id"
     t.integer  "organization_id"
@@ -118,6 +117,7 @@ ActiveRecord::Schema.define(:version => 20120418061637) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "phone"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

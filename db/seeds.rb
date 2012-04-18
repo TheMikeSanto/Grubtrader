@@ -17,7 +17,7 @@ organizations = Organization.create([{
 																			street: "123 FoodBank Drive", 
 																			zip: "68121", 
 																			email: "person@foodbank.com",
-																			phone: 7654321,
+																			phone: "7654321",
 																			role_id: 2
 																		},
 																		{
@@ -27,7 +27,7 @@ organizations = Organization.create([{
 																			street: "456 Blackburn Ave",
 																			zip: "68154",
 																			email: "person@blackburn.com",
-																			phone: 1234567,
+																			phone: "1234567",
 																			role_id: 1
 																		},
 																		{
@@ -44,14 +44,14 @@ organizations = Organization.create([{
 																		name: "Local Growers", 
 																		state: "Nebraska", city: "Omaha", 
 																		street: "1234 Fake St.", zip: "68131", 
-																		phone: 4021234567, 
+																		phone: "4021234567", 
 																		email: "john@doe.com", 
 																		role_id: 3
 																	}])
 
 me = User.create(fname: "Mike", lname: "Santo", password: 'asdf1234', 
 								password_confirmation: 'asdf1234', email: 'mike.j.santo@gmail.com',
-								phone: 4025154191, role_id: 1, organization_id: 3)
+								phone: "4025154191", role_id: 1, organization_id: 3)
 
 users = User.create([
 										{	fname: "John", lname: "Doe", password: "asdf1234", 
