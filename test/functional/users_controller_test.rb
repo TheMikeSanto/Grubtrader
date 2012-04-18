@@ -4,11 +4,12 @@ class UsersControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
   setup do
-    @user = users(:one)
+    @user         = users(:one)
+    @user2        = users(:two)
     @organization = organizations(:one)
+
     @user.update_attribute(:organization_id, @organization.id)
     sign_in @user
-    @new_user = User.new(fname: "Test", lname: "User", email: "test@testusers.com", phone: 1243568, active: true, role_id: 1, organization_id: 1)
   end
 
   test "should get index" do
@@ -23,9 +24,9 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should create user" do
+    @user2.destroy  # Emails must be valid so we have to kill user2 before we resurrect him
     assert_difference('User.count') do
-      post :create, user: @new_user.attributes
-      puts @user.errors.inspect
+      post :create, user: @user2.attributes.merge!({password: 'asdf1234', password_confirmation: 'asdf1234'})
     end
 
     assert_redirected_to user_path(assigns(:user))
