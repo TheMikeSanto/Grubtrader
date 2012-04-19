@@ -24,7 +24,7 @@ class OrganizationsController < ApplicationController
   # GET /organizations/new
   # GET /organizations/new.json
   def new
-    @organization = Organization.new
+    @organization = Organization.new(role_id: OrganizationRole.producer_role_id)
 
     respond_to do |format|
       format.html # new.html.erb
