@@ -22,15 +22,15 @@ class User < ActiveRecord::Base
   end
 
   def is_admin?
-    role.name == "Administrator"
+    role.present? and role.name == "Administrator"
   end
 
   def is_producer?
-    organization.organization_role.name == "Producer"
+    organization.present? and organization.organization_role.name == "Producer"
   end
 
   def is_distributor?
-    organization.organization_role.name == "Distributor"
+    organization.present? and organization.organization_role.name == "Distributor"
   end
 
   def set_role_id
