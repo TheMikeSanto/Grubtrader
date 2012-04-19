@@ -49,7 +49,7 @@
           <div class="mws-form-item small">
             <%= f.select :organization_id,  options_for_organization_select %>
             <div class="mws-info">
-             Select the organization that you are associated with. If your organization isn't on this list, create one.
+             Select the organization that you are associated with. If your organization isn't on this list, <%= link_to "create one", new_organization_path %>.
           </div>
         </div>
 	  		<div class="mws-button-row">
