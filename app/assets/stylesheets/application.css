@@ -23,3 +23,7 @@
 	margin-left: auto;
 	margin-right: auto;
 }
+
+.mws-form-item.state {
+	width: 40px;
+}
