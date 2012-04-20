@@ -47,7 +47,11 @@ class OrganizationsController < ApplicationController
         if user_signed_in?
           format.html { redirect_to @organization, notice: 'Organization was successfully created.' }
         else
-          format.html { redirect_to new_user_registration_path({user: {organization_id: @organization.id}})}
+          format.html { redirect_to new_user_registration_path({user: {organization_id: @organization.id, 
+                                                                        email: @organization.email,
+                                                                        phone: @organization.phone
+                                                                      }
+                                                                })}
         end
         format.json { render json: @organization, status: :created, location: @organization }
       else
