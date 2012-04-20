@@ -41,10 +41,6 @@
         <li class="<%= active_page_class("users") %>"><%= link_to "Users", users_path, class: "mws-i-24 i-group-2" %></li>
       <% end %>
 
-      <% if can? :view, Role %>
-        <li class="<%= active_page_class("roles") %>"><%= link_to "Settings", roles_path, class: "mws-i-24 i-settings-2" %></li>
-      <% end %>
-
       <% if can? :view, Report %>
         <li class="<%= active_page_class("reports") %>"><%= link_to "Reports", new_report_path, class: "mws-i-24 i-graph" %></li>
       <% end %>
