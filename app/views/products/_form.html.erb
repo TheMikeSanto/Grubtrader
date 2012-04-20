@@ -1,6 +1,8 @@
 <div class="mws-panel grid_5 center-panel">
   <div class="mws-panel-header">
-    <span class="mws-i-24 i-leaf">Add product</span>
+    <span class="mws-i-24 i-leaf">
+      <%= @product.new_record? ? "Add product" : "Edit " + @product.name %>
+    </span>
   </div>
 
   <div class="mws-panel-body">

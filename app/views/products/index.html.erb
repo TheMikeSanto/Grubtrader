@@ -17,9 +17,9 @@
           <% @products.each do |product| %>
             <tr class="gradeX">
                 <td><%= product.name %></td>
-                <td><%= product.shelf_life %></td>
-                <td><%= product.product_category_id %></td>
-                <td><%= product.unit_id %>
+                <td><%= product.full_shelf_life %></td>
+                <td><%= product.product_category.name %></td>
+                <td><%= product.unit.name %>
                 <td><%= link_to 'Show', product %>
                     <%= link_to 'Edit', edit_product_path(product) %>
                     <%= link_to 'Destroy', product, confirm: 'Are you sure?', method: :delete %></td>

@@ -1,25 +1,44 @@
-<p id="notice"><%= notice %></p>
+<div class="mws-panel grid_5">
+	<div class="mws-panel-header main_header">
+		<span class="mws-i-24 i-leaf">
+			<%= @product.name %>
+		</span>
+	</div>
 
-<p>
-  <b>Shelf life:</b>
-  <%= @product.shelf_life %>
-</p>
+	<div class="mws-panel-body">
+		<div class="about">
+			<div class="item">
+				<span class="data">
+			  	<%= @product.full_shelf_life %>
+		  	</span>
+		  	<span class="label">
+		  		shelf life
+	  		</span>
+  		</div>
 
-<p>
-  <b>Name:</b>
-  <%= @product.name %>
-</p>
+			<div class="item">
+				<span class="data <%= @product.product_category.name %>">
+	  			<%= @product.product_category.name %>
+  			</span>
+			</div>
 
-<p>
-  <b>Product category:</b>
-  <%= @product.product_category_id %>
-</p>
+			<div class="item">
+				<span class="label">
+					traded in
+				<span class="data">
+	  			<%= @product.unit.name %>
+  			</span>
+			</div>
+		</div>
+	</div>
+</div>
 
-<p>
-  <b>Unit:</b>
-  <%= @product.unit_id %>
-</p>
+<div class="mws-panel grid_3 options">
+	<div class="mws-panel-header">
+		<span>Options</span>
+	</div>
 
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+	<div class="mws-panel-body">
+		<%= link_to 'Edit', edit_product_path(@product) %>
+	</div>
+</div>

@@ -8,6 +8,8 @@ class Ability
     can [:read, :update], User, id: user.id
 
     can [:create, :read], Organization
+    can :read, OrganizationRole
+    can :read, Role
 
     if user.is_producer?
       can :manage, Donation, organization_id: user.organization_id
