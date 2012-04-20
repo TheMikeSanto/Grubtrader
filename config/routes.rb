@@ -1,7 +1,8 @@
 Foodbank::Application.routes.draw do
   resources :reports
 
-  devise_for :users
+  devise_for :users,  controllers:  {registrations: "users/registrations"},
+                      path_names:   {sign_in: "login", sign_out: "logout"}
 
   resources :donation_lines
 
