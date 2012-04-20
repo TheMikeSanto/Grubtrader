@@ -68,3 +68,5 @@ users = User.create([
 										}])
 
 units = Unit.create([{name: "pounds"}, {name: "kilograms"}, {name: "ounces"}])
+
+product_categories = ProductCategory.create([{name: "fruit"}, {name: "vegetable"}])
