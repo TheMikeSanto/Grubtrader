@@ -25,9 +25,10 @@
           </div>
         </div>
         <div class="mws-form-row">
-          <%= f.label :shelf_life %>
+          <%= f.label "Shelf life" %>
           <div class="mws-form-item small">
-            <%= f.text_field :shelf_life, class: "mws-textinput" %>
+            <%= f.text_field :shelf_life_time, class: "mws-textinput", placeholder: "#" %>
+            <%= f.select :shelf_life_span, options_for_shelf_life_select %>
           </div>
         </div>
         <div class="mws-form-row">

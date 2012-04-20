@@ -19,4 +19,8 @@ module ApplicationHelper
 	def options_for_unit_select
 		Unit.scoped.uniq.map{ |unit| [unit.name, unit.id] }
 	end
+
+	def options_for_shelf_life_select
+		["days", "weeks", "months"]
+	end
 end
