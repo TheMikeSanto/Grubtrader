@@ -61,7 +61,7 @@
     </div>
     <!-- Start Main Wrapper -->
     <div id="mws-wrapper">
-    	<% if user_signed_in? and not @disable_sidebar %>
+    	<% if user_signed_in? or not @disable_sidebar %>
 	     <%= render partial: "layouts/sidebar" %>
       <% end %>
 
