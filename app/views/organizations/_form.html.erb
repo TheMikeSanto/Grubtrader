@@ -1,8 +1,6 @@
-<% @disable_sidebar = true %>
-
 <div class="mws-panel grid_5 center-panel">
   <div class="mws-panel-header">
-    <span class="mws-i-24">Register Organization</span>
+    <span class="mws-i-24 i-companies">Register Organization</span>
   </div>
 
   <div class="mws-panel-body">
@@ -27,20 +25,20 @@
           </div>
         </div>
         <div class="mws-form-row">
-          <%= f.label :state %>
-          <div class="mws-form-item medium">
-            <%= f.text_field :state, class: "mws-textinput" %>
-          </div>
-        </div>
-        <div class="mws-form-row">
           <%= f.label :city %>
-          <div class="mws-form-item medium">
+          <div class="mws-form-item small">
             <%= f.text_field :city, class: "mws-textinput" %>
           </div>
         </div>
         <div class="mws-form-row">
+          <%= f.label :state %>
+          <div class="mws-form-item state">
+            <%= f.text_field :state, class: "mws-textinput", maxlength: 2 %>
+          </div>
+        </div>
+        <div class="mws-form-row">
           <%= f.label :street %>
-          <div class="mws-form-item medium">
+          <div class="mws-form-item small">
             <%= f.text_field :street, class: 'mws-textinput' %>
           </div>
         </div>
@@ -51,15 +49,15 @@
           </div>
         </div>
         <div class="mws-form-row">
-          <%= f.label :phone %>
+          <%= f.label "Contact Email" %>
           <div class="mws-form-item medium">
-            <%= f.text_field :phone, class: "mws-textinput" %>
+            <%= f.text_field :email, class: "mws-textinput" %>
           </div>
         </div>
         <div class="mws-form-row">
-          <%= f.label :email %>
+          <%= f.label "Contact Phone" %>
           <div class="mws-form-item medium">
-            <%= f.text_field :email, class: "mws-textinput" %>
+            <%= f.text_field :phone, class: "mws-textinput" %>
           </div>
         </div>
         <div class="mws-button-row">
