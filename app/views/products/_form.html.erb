@@ -1,33 +1,50 @@
-<%= form_for(@product) do |f| %>
-  <% if @product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+<div class="mws-panel grid_5 center-panel">
+  <div class="mws-panel-header">
+    <span class="mws-i-24 i-leaf">Add product</span>
+  </div>
 
-      <ul>
-      <% @product.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+  <div class="mws-panel-body">
+    <%= form_for(@product, html: {class: "mws-form"}) do |f| %>
+      <% if @product.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+          <ul>
+          <% @product.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :shelf_life %><br />
-    <%= f.text_field :shelf_life %>
+      <div class="mws-form-inline">
+        <div class="mws-form-row">
+          <%= f.label :name %>
+          <div class="mws-form-item small">
+            <%= f.text_field :name, class: "mws-textinput" %>
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <%= f.label :shelf_life %>
+          <div class="mws-form-item small">
+            <%= f.text_field :shelf_life, class: "mws-textinput" %>
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <%= f.label "Category" %>
+          <div class="mws-form-item small">
+            <%= f.select :product_category_id, options_for_product_category_select %>
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <%= f.label :unit_id %>
+          <div class="mws-form-item small">
+            <%= f.select :unit_id, options_for_unit_select %>
+        </div>
+        <div class="actions">
+          <%= f.submit "Create product", class: "mws-button red" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :product_category_id %><br />
-    <%= f.number_field :product_category_id %>
-  </div>
-  <div class="field">
-    <%= f.label :unit_id %><br />
-    <%= f.number_field :unit_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
