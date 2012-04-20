@@ -66,3 +66,5 @@ users = User.create([
 											password_confirmation: 'asdf1234', email: "student@ops.edu",
 											role_id: 2, organization_id: 2
 										}])
+
+units = Unit.create([{name: "pounds"}, {name: "kilograms"}, {name: "ounces"}])
