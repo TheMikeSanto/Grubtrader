@@ -40,11 +40,15 @@ class OrganizationsController < ApplicationController
   # POST /organizations
   # POST /organizations.json
   def create
-    @organization = Organization.new(params[:organization])
+    @organization = Organization.new(params[:organization].merge!({role_id: OrganizationRole.producer_role_id}))
 
     respond_to do |format|
       if @organization.save
-        format.html { redirect_to @organization, notice: 'Organization was successfully created.' }
+        if user_signed_in?
+          format.html { redirect_to @organization, notice: 'Organization was successfully created.' }
+        else
+          format.html { redirect_to new_user_registration_path(organization_id: @organization.id)}
+        end
         format.json { render json: @organization, status: :created, location: @organization }
       else
         format.html { render action: "new" }
