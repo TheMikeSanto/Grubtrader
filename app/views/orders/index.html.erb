@@ -26,7 +26,7 @@
                 <td>40</td>
                 <td>Carrots</td>
                 <td><%= order.filled_date.present? ? order.filled_date : "unfilled" %></td>
-                <%= render partial: "layouts/action_button", local: {object: order} %>
+                <%= render partial: "layouts/action_button", locals: {object: order} %>
             </tr>
           <% end %>
         </tbody>
