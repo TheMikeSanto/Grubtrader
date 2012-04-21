@@ -48,4 +48,16 @@
   </div>
 </div>
 
-<%= link_to 'Add organization', new_organization_path %>
+<% if can? :create, Organization %>
+  <div class="mws-panel grid_3 options">
+    <div class="mws-panel-header">
+      <span>Options</span>
+    </div>
+
+    <div class="mws-panel-body">
+      <center>
+        <%= link_to 'add organization', new_organization_path, class: "mws-button green" %>
+      </center>
+    </div>
+  </div>
+<% end %>
