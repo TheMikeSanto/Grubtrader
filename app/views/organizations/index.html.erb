@@ -12,8 +12,6 @@
                 <th>City</th>
                 <th>Street</th>
                 <th>Zip</th>
-                <th>Phone</th>
-                <th>Email</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -25,9 +23,7 @@
                 <td><%= organization.state %></td>
                 <td><%= organization.city %></td>
                 <td><%= organization.street %></td>
-                <td><%= organization.zip %></td>
-                <td><%= organization.phone %></td>
-                <td><%= organization.email %></td>                
+                <td><%= organization.zip %></td>                
                 <%= render partial: "layouts/action_button", locals: {object: organization} %>
             </tr>
           <% end %>
