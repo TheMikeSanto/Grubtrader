@@ -18,11 +18,14 @@
 
       <hr>
 
-      <div class="item">
-        <span class="label">
+      <div class="item contact">
+        <span class="label mws-ic ic-map address">
           <a href="http://maps.google.com/maps?q=
           <%= @organization.street %> <%= @organization.city %>, <%= @organization.state %> <%= @organization.zip %>">
           <%= @organization.street %> <%= @organization.city %>, <%= @organization.state %> <%= @organization.zip %></a>
+        </span>
+        <span class="label mws-ic ic-phone">
+          <%= @organization.phone %>
         </span>
       </div>
 

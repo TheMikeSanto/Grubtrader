@@ -1,3 +1,12 @@
 // Place all the styles related to the organizations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.contact span {
+	height: 32px;
+	display: inline-block;
+	padding: 2px 34px;
+}
+
+.contact span.ic-phone {
+	float: right;
+}

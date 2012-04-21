@@ -16,6 +16,15 @@
 
       <hr>
 
+      <% if @user.phone.present? %>
+        <div class="item contact">
+          <span class="label mws-ic ic-phone" style="float: left;">
+            <%= @user.phone %>
+          </span>
+        </div>
+        <hr>
+      <% end %>
+
       <div class="item">
         <% if @user.is_producer? %>
           <% count = @user.donations.count %>
