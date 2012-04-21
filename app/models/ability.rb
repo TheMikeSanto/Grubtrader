@@ -21,7 +21,7 @@ class Ability
       can :manage, Report
       can :manage, Inventory
       can :view, Product
-      can :update, Organization, organization_id: user.organization_id
+      can :update, Organization, id: user.organization_id
     end
 
     if user.is_admin?
