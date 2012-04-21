@@ -3,33 +3,6 @@
     <span class="mws-i-24 i-group-2">Users</span>
   </div>
   <div class="mws-panel-body">
-    <table class="mws-datatable-fn mws-table">
-        <thead>
-            <tr>
-                <th>Organization</th>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Active</th>
-                <th>Role</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-          <% @users.each do |user| %>
-            <tr class="gradeX">
-                <td><%= user.organization.name %></td>
-                <td><%= user.fname %></td>
-                <td><%= user.lname %></td>
-                <td><%= user.email %></td>
-                <td><%= user.phone %></td>
-                <td><%= user.active ? "yes": "no" %></td>
-                <td><%= user.role.name %></td>             
-                <%= render partial: "layouts/action_button", locals: {object: user} %>
-            </tr>
-          <% end %>
-        </tbody>
-    </table>
+    <%= render partial: "user_table" %>
   </div>
 </div>

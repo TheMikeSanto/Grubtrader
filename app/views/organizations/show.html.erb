@@ -1,45 +1,97 @@
-<p id="notice"><%= notice %></p>
+<div class="mws-panel grid_5">
+  <div class="mws-panel-header main_header">
+    <span class="mws-i-24 i-companies">
+      <%= @organization.name %>
+    </span>
+  </div>
 
-<p>
-  <b>Name:</b>
-  <%= @organization.name %>
-</p>
+  <div class="mws-panel-body">
+    <div class="about">
+      <div class="item">
+        <span class="label">
+          is a 
+        </span>
+        <span class="data">
+          <%= @organization.role.name %>
+        </span>
+      </div>
 
-<p>
-  <b>State:</b>
-  <%= @organization.state %>
-</p>
+      <hr>
 
-<p>
-  <b>City:</b>
-  <%= @organization.city %>
-</p>
+      <div class="item">
+        <span class="label">
+          <a href="http://maps.google.com/maps?q=
+          <%= @organization.street %> <%= @organization.city %>, <%= @organization.state %> <%= @organization.zip %>">
+          <%= @organization.street %> <%= @organization.city %>, <%= @organization.state %> <%= @organization.zip %></a>
+        </span>
+      </div>
 
-<p>
-  <b>Street:</b>
-  <%= @organization.street %>
-</p>
+      <hr>
 
-<p>
-  <b>Zip:</b>
-  <%= @organization.zip %>
-</p>
+      <div class="item">
+        <span class="data">
+          <%= @organization.users.count %>
+        </span>
+        <span class="label">
+          members
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <b>Phone:</b>
-  <%= @organization.phone %>
-</p>
+<div class="mws-panel grid_3 options">
+  <div class="mws-panel-header">
+    <span>Options</span>
+  </div>
 
-<p>
-  <b>Email:</b>
-  <%= @organization.email %>
-</p>
+  <div class="mws-panel-body">
+    <center>
+      <a href="mailto:<%= @organization.email %>" class="mws-button gray">contact</a>
+      <% if can? :edit, @organization %>
+        <%= link_to 'edit', edit_product_path(@organization), class: "mws-button green" %>
+      <% end %>
 
-<p>
-  <b>Role:</b>
-  <%= @organization.role_id %>
-</p>
+      <% if can? :destroy, @organization %>
+        <%= link_to 'delete', @organization, method: :Delete, class: "mws-button red" %>
+      <% end %>
+    </center>
+  </div>
+</div>
+
+<div class="mws-panel grid_8">
+  <div class="mws-panel-header main_header">
+    <span class="mws-i-24 i-group-2">
+      Users in <%= @organization.name %>
+    </span>
+  </div>
+
+  <div class="mws-panel-body">
+    <table class="mws-datatable-fn mws-table">
+      <thead>
+        <tr>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Role</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+        <tbody>
+          <% @organization.users.each do |user| %>
+            <tr class="gradeX">
+              <td><%= user.fname %></td>
+              <td><%= user.lname %></td>
+              <td><%= user.email %></td>
+              <td><%= user.phone %></td>
+              <td><%= user.role.name %></td>             
+              <%= render partial: "layouts/action_button", locals: {object: user} %>
+            </tr>
+          <% end %>
+        </tbody>
+    </table>
+  </div>
+</div>
+        
 
 
-<%= link_to 'Edit', edit_organization_path(@organization) %> |
-<%= link_to 'Back', organizations_path %>
