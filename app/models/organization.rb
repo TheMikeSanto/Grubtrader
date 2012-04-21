@@ -3,4 +3,8 @@ class Organization < ActiveRecord::Base
 	belongs_to :organization_role, foreign_key: :role_id
 
 	validates_presence_of :phone, :state, :city, :street, :zip, :email, :name, :role_id
+
+	def role
+		organization_role
+	end
 end
