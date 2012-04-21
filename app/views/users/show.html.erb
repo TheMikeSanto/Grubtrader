@@ -1,40 +1,56 @@
-<p id="notice"><%= notice %></p>
+<div class="mws-panel grid_5">
+  <div class="mws-panel-header main_header">
+    <span class="mws-i-24 i-user">
+      <%= @user.name %>
+    </span>
+  </div>
 
-<p>
-  <b>Fname:</b>
-  <%= @user.fname %>
-</p>
+  <div class="mws-panel-body">
+    <div class="about">
+      <div class="item">
+        <span class="data">
+          <%= link_to @user.organization.name, @user.organization %> 
+          (<%= @user.supply_role %>)
+        </span>
+      </div>
 
-<p>
-  <b>Lname:</b>
-  <%= @user.lname %>
-</p>
+      <hr>
 
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
+      <div class="item">
+        <% if @user.is_producer? %>
+          <% count = @user.donations.count %>
+          <% type = "donations" %>
+        <% elsif @user.is_distributor? %>
+          <% count = @user.orders.count %>
+          <% type = "orders" %>
+        <% end %>
 
-<p>
-  <b>Phone:</b>
-  <%= @user.phone %>
-</p>
+        <span class="data">
+          <%= count %>
+        </span>
+        <span class="label">
+          <%= type %>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <b>Active:</b>
-  <%= @user.active %>
-</p>
+<div class="mws-panel grid_3 options">
+  <div class="mws-panel-header">
+    <span>Options</span>
+  </div>
 
-<p>
-  <b>Role:</b>
-  <%= @user.role_id %>
-</p>
+  <div class="mws-panel-body">
+    <center>
+      <a href="mailto:<%= @user.email %>" class="mws-button gray">contact</a>
+      <% if can? :edit, @user %>
+        <%= link_to 'edit', edit_user_path(@user), class: "mws-button green" %>
+      <% end %>
 
-<p>
-  <b>Organization:</b>
-  <%= @user.organization_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+      <% if can? :destroy, @user %>
+        <%= link_to 'delete', @user, method: :Delete, class: "mws-button red" %>
+      <% end %>
+    </center>
+  </div>
+</div>

@@ -1,45 +1,58 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<div class="mws-panel grid_5 center-panel">
+  <div class="mws-panel-header">
+    <span class="mws-i-24 i-leaf">
+      <%= @user.new_record? ? "Add user" : "Edit " + @user.name %>
+    </span>
+  </div>
 
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+  <div class="mws-panel-body">
+    <%= form_for(@user, html: {class: "mws-form"}) do |f| %>
+      <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+          <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :fname %><br />
-    <%= f.text_field :fname %>
+      <div class="mws-form-inline">
+        <div class="mws-form-row">
+          <%= f.label "First name" %>
+          <div class="mws-form-item small">
+            <%= f.text_field :fname, class: "mws-textinput" %>
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <%= f.label "Last name" %>
+          <div class="mws-form-item small">
+            <%= f.text_field :lname, class: "mws-textinput" %>
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <%= f.label "Email" %>
+          <div class="mws-form-item small">
+            <%= f.text_field :email, class: "mws-textinput" %>
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <%= f.label "Role" %>
+          <div class="mws-form-item small">
+            <%= f.select :role_id, options_for_role_select %>
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <%= f.label "Organization" %>
+          <%= f.select :organization_id, options_for_organization_select %>
+        </div>
+        <div class="actions">
+          <% button_message = @user.new_record? ? "Add user" : "Save changes" %>
+          <%= f.submit button_message, class: "mws-button red" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :lname %><br />
-    <%= f.text_field :lname %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.number_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :active %><br />
-    <%= f.check_box :active %>
-  </div>
-  <div class="field">
-    <%= f.label :role_id %><br />
-    <%= f.number_field :role_id %>
-  </div>
-  <div class="field">
-    <%= f.label :organization_id %><br />
-    <%= f.number_field :organization_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

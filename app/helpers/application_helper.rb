@@ -23,4 +23,8 @@ module ApplicationHelper
 	def options_for_shelf_life_select
 		["days", "weeks", "months"]
 	end
+
+	def options_for_role_select
+		Role.scoped.map{ |role| [role.name, role.id] }
+	end
 end
