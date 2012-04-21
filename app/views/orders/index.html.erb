@@ -26,9 +26,7 @@
                 <td>40</td>
                 <td>Carrots</td>
                 <td><%= order.filled_date.present? ? order.filled_date : "unfilled" %></td>
-                <td><%= link_to 'Show', order %>
-                    <%= link_to 'Edit', edit_order_path(order) %>
-                    <%= link_to 'Destroy', order, confirm: 'Are you sure?', method: :delete %></td>
+                <%= render partial: "layouts/action_button", local: {object: order} %>
             </tr>
           <% end %>
         </tbody>

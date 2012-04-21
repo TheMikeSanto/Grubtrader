@@ -22,9 +22,7 @@
                 <td><%= donation.user.name %></td>
                 <td>40</td>
                 <td>Carrots</td>
-                <td><%= link_to 'Show', donation %>
-                    <%= link_to 'Edit', edit_donation_path(donation) %>
-                    <%= link_to 'Destroy', donation, confirm: 'Are you sure?', method: :delete %></td>
+                <%= render partial: "layouts/action_button", locals: {object: donation} %>
             </tr>
           <% end %>
         </tbody>

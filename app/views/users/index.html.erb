@@ -26,17 +26,7 @@
                 <td><%= user.phone %></td>
                 <td><%= user.active ? "yes": "no" %></td>
                 <td><%= user.role.name %></td>             
-                <td>
-                  <% if can? :view, user %>
-                    <%= link_to 'View', user %>
-                  <% end %>
-                  <% if can? :edit, user %>
-                    <%= link_to 'Edit', edit_user_path(user) %>
-                  <% end %>
-                  <% if can? :destroy, user %>
-                    <%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %>
-                  <% end %>
-                </td> 
+                <%= render partial: "layouts/action_button", locals: {object: user} %>
             </tr>
           <% end %>
         </tbody>

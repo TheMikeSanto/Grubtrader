@@ -7,7 +7,7 @@
     <% end %>
 
     <% if can? :update, object %>
-      <a href="/#{object_type.pluralize}/#{object.id}/edit" class='edit'>edit</a>
+      <a href="/<%= object_type.pluralize %>/<%= object.id %>/edit" class='edit'>edit</a>
     <% end %>
 
     <% if can? :destroy, object %>
