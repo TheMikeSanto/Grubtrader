@@ -38,16 +38,20 @@
             <%= f.text_field :email, class: "mws-textinput" %>
           </div>
         </div>
-        <div class="mws-form-row">
-          <%= f.label "Role" %>
-          <div class="mws-form-item small">
-            <%= f.select :role_id, options_for_role_select %>
+
+        <% if current_user.is_admin? %>
+          <div class="mws-form-row">
+            <%= f.label "Role" %>
+            <div class="mws-form-item small">
+              <%= f.select :role_id, options_for_role_select %>
+            </div>
           </div>
-        </div>
-        <div class="mws-form-row">
-          <%= f.label "Organization" %>
-          <%= f.select :organization_id, options_for_organization_select %>
-        </div>
+          <div class="mws-form-row">
+            <%= f.label "Organization" %>
+            <%= f.select :organization_id, options_for_organization_select %>
+          </div>
+        <% end %>
+
         <div class="actions">
           <% button_message = @user.new_record? ? "Add user" : "Save changes" %>
           <%= f.submit button_message, class: "mws-button red" %>
