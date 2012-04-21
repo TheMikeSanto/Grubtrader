@@ -8,7 +8,7 @@ class UnitsControllerTest < ActionController::TestCase
     @organization = organizations(:one)
     @user.update_attribute(:organization_id, @organization.id)
     sign_in @user
-    @unit = units(:one)
+    @unit = units(:pounds)
   end
 
   test "should get index" do

@@ -4,12 +4,12 @@ one:
   shelf_life_time: 2
   shelf_life_span: weeks
   name: Carrots
-  product_category_id: 1
-  unit_id: 1
+  product_category: vegetable
+  unit: pounds
 
 two:
   shelf_life_time: 3 
   shelf_life_span: days
   name: Strawberries
-  product_category_id: 1
-  unit_id: 1
+  product_category: fruit
+  unit: ounces

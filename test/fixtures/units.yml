@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
+pounds:
   name: Pounds
 
-two:
+ounces:
   name: Ounces
