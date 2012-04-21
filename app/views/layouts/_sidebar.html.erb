@@ -29,12 +29,12 @@
         <li class="<%= active_page_class("inventories") %>"><%= link_to "Inventory", inventories_path, class: "mws-i-24 i-dropbox" %></li>
       <% end %>
 
-      <% if can? :view, Organization %>
-        <li class="<%= active_page_class("organizations") %>"><%= link_to "Organizations", organizations_path, class: "mws-i-24 i-companies" %></li>
-      <% end %>
-
       <% if can? :view, Product %>
         <li class="<%= active_page_class("products") %>"><%= link_to "Products", products_path, class: "mws-i-24 i-leaf" %></li>
+      <% end %>
+      
+      <% if can? :view, Organization %>
+        <li class="<%= active_page_class("organizations") %>"><%= link_to "Organizations", organizations_path, class: "mws-i-24 i-companies" %></li>
       <% end %>
 
       <% if can? :view, User %>
