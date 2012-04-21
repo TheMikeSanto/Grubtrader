@@ -45,7 +45,8 @@
             <%= f.select :unit_id, options_for_unit_select %>
         </div>
         <div class="actions">
-          <%= f.submit "Create product", class: "mws-button red" %>
+          <% button_message = @product.new_record? ? "Add product" : "Save changes" %>
+          <%= f.submit button_message, class: "mws-button red" %>
         </div>
       </div>
     <% end %>

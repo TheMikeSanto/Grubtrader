@@ -32,6 +32,10 @@
 	color: green;
 }
 
+.item .fruit {
+	color: #DB5858;
+}
+
 .options .mws-panel-body {
 	padding: 10px 20px;
 	font-size: 1.4em;
@@ -39,4 +43,9 @@
 
 .options a {
 	text-decoration: none;
+}
+
+a.mws-button.green {
+	color: #333;
+	text-shadow: 0px 1px #CFCFCF;
 }

@@ -16,11 +16,15 @@
 	  		</span>
   		</div>
 
+  		<hr>
+
 			<div class="item">
 				<span class="data <%= @product.product_category.name %>">
 	  			<%= @product.product_category.name %>
   			</span>
 			</div>
+
+			<hr>
 
 			<div class="item">
 				<span class="label">
@@ -39,6 +43,14 @@
 	</div>
 
 	<div class="mws-panel-body">
-		<%= link_to 'Edit', edit_product_path(@product) %>
+		<center>
+			<% if can? :edit, @product %>
+				<%= link_to 'edit', edit_product_path(@product), class: "mws-button green" %>
+			<% end %>
+
+			<% if can? :destroy, @product %>
+				<%= link_to 'delete', @product, method: :Delete, class: "mws-button red" %>
+			<% end %>
+		</center>
 	</div>
 </div>
