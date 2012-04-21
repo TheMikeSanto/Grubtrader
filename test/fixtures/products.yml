@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  shelf_life: 2 weeks
+  shelf_life_time: 2
+  shelf_life_span: weeks
   name: Carrots
   product_category_id: 1
   unit_id: 1
 
 two:
-  shelf_life: 3 days
+  shelf_life_time: 3 
+  shelf_life_span: days
   name: Strawberries
   product_category_id: 1
   unit_id: 1
