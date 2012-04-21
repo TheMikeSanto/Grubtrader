@@ -4,10 +4,10 @@ class Ability
   def initialize(user)
     user ||= User.new # guest
 
-    can :create, User
-    can [:read, :update], User, id: user.id
+    can [:create, :read, :view], User
+    can :update, User, id: user.id
 
-    can [:create, :read], Organization
+    can [:create, :read, :view], Organization
     can :read, OrganizationRole
     can :read, Role
 
@@ -22,6 +22,7 @@ class Ability
       can :manage, Inventory
       can :view, Product
       can :update, Organization, id: user.organization_id
+
     end
 
     if user.is_admin?
