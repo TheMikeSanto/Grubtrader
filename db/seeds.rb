@@ -70,3 +70,11 @@ users = User.create([
 units = Unit.create([{name: "pounds"}, {name: "kilograms"}, {name: "ounces"}])
 
 product_categories = ProductCategory.create([{name: "fruit"}, {name: "vegetable"}])
+
+products = Product.create([
+	{"name"=>"Lettuce", "product_category_id"=>2, "unit_id"=>1, "shelf_life_time"=>2, "shelf_life_span"=>"weeks"},
+	{"name"=>"Tomatoes", "product_category_id"=>1, "unit_id"=>1, "shelf_life_time"=>10, "shelf_life_span"=>"days"},
+	{"name"=>"Potatoes", "product_category_id"=>2, "unit_id"=>1, "shelf_life_time"=>1, "shelf_life_span"=>"months"},
+	{"name"=>"Carrots", "product_category_id"=>2, "unit_id"=>1, "shelf_life_time"=>2, "shelf_life_span"=>"weeks"},
+	{"name"=>"Strawberries", "product_category_id"=>1, "unit_id"=>3, "shelf_life_time"=>10, "shelf_life_span"=>"days"}
+	])
