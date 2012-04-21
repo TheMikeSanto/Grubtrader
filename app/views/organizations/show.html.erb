@@ -48,7 +48,7 @@
     <center>
       <a href="mailto:<%= @organization.email %>" class="mws-button gray">contact</a>
       <% if can? :edit, @organization %>
-        <%= link_to 'edit', edit_product_path(@organization), class: "mws-button green" %>
+        <%= link_to 'edit', edit_organization_path(@organization), class: "mws-button green" %>
       <% end %>
 
       <% if can? :destroy, @organization %>
