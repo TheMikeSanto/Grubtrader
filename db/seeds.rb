@@ -46,7 +46,7 @@ organizations = Organization.create([{
 																		street: "1234 Fake St.", zip: "68131", 
 																		phone: "4021234567", 
 																		email: "john@doe.com", 
-																		role_id: 3
+																		role_id: 2
 																	}])
 
 me = User.create(fname: "Mike", lname: "Santo", password: 'asdf1234', 
