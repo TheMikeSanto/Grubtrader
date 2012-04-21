@@ -44,19 +44,21 @@
                 
               <!-- Username and Functions -->
               <div id="mws-user-functions">
-                  <div id="mws-username">
-                    Hello, <%= current_user.name %>
-                  </div>
-                  <ul>
-                  	<li><%= link_to "Settings", user_path(current_user) %></li>
-                    <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
-                  </ul>
+                <div id="mws-username">
+                  Hello, <%= current_user.name %>
+                </div>
+
+                <ul>
+                	<li><%= link_to "Settings", user_path(current_user) %></li>
+                  <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+                </ul>
+
               </div>
             </div>
-          <% end %>
-              <div style="clear: both;"></div>
           </div>
-      </div>
+        </div>
+      <% end %>
+      <div style="clear: both;"></div>
     </div>
     <!-- Start Main Wrapper -->
     <div id="mws-wrapper">
