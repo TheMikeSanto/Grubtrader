@@ -1,0 +1,40 @@
+<div class="grid_5">
+	<div class="mws-report">
+		<span class="mws-report-icon mws-ic ic-cart"></span>
+		<span class="mws-report-content">
+			<span class="mws-report-title">Your Orders</span>
+			<span class="mws-report-value">
+				<%= current_user.orders.count %>
+			</span>
+		</span>
+	</div>
+
+	<div class="mws-report">
+		<span class="mws-report-icon mws-ic ic-building"></span>
+		<span class="mws-report-content">
+			<span class="mws-report-title">
+				Org Orders
+			</span>
+			<span class="mws-report-value">
+				0
+			</span>
+		</span>
+	</div>
+</div>
+
+<div class="mws-panel grid_8">
+	<div class="mws-panel-header">
+		<span>Distributor Dashboard</span>
+	</div>
+
+	<div class="mws-panel-body">
+		<div class="about order">
+			<a href="/orders/new" class="mws-button green">
+				<%= image_tag "plus.png" %>
+				<span>
+					place order
+				</span>
+			</a>
+		</div>
+	</div>
+</div>

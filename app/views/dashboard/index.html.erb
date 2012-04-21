@@ -1,1 +1,27 @@
-Hi
+<div class="mws-panel grid_3">
+	<div class="mws-panel-header main_header">
+		<span class="mws-i-24 i-user">
+			<%= current_user.name %>
+		</span>
+	</div>
+
+	<div class="mws-panel-body">
+		<div class="about">
+			<% if current_user.is_admin? %>
+				<div class="item">
+					<span class="admin">
+						Administrator
+					</span>
+				</div>
+			<% end %>
+			
+			<div class="item">
+				<span class="label">
+					<%= current_user.organization.name %>
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+<%= render partial: "dashboard/#{current_user.supply_role.downcase}"%>

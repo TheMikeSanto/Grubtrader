@@ -31,3 +31,22 @@
 .about hr {
 	margin-bottom: 3px;
 }
+
+.about {
+	padding: 10px 20px;
+	font-size: 1.4em;
+}
+
+.about h4 {
+	margin-bottom: 3px;
+}
+
+.about half {
+	width: 45%;
+	display: inline;
+}
+
+.about .data {
+	font-size: 1.4em;
+}
+

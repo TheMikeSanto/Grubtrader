@@ -1,0 +1,41 @@
+<div class="grid_5">
+	<div class="mws-report">
+		<span class="mws-report-icon mws-ic ic-gift-add"></span>
+		<span class="mws-report-content">
+			<span class="mws-report-title">Your Donations</span>
+			<span class="mws-report-value">
+				<%= current_user.donations.count %>
+			</span>
+		</span>
+	</div>
+
+	<div class="mws-report">
+		<span class="mws-report-icon mws-ic ic-building"></span>
+		<span class="mws-report-content">
+			<span class="mws-report-title">
+				Org Donations
+			</span>
+			<span class="mws-report-value">
+				0
+			</span>
+		</span>
+	</div>
+</div>
+
+
+<div class="mws-panel grid_8">
+	<div class="mws-panel-header">
+		<span>Producer Dashboard</span>
+	</div>
+
+	<div class="mws-panel-body">
+		<div class="about donation">
+			<a href="/donations/new" class="mws-button green">
+				<%= image_tag "plus.png" %>
+				<span>
+					make donation
+				</span>
+			</a>
+		</div>
+	</div>
+</div>

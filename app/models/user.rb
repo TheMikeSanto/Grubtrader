@@ -33,6 +33,11 @@ class User < ActiveRecord::Base
     organization.present? and organization.organization_role.name == "Distributor"
   end
 
+  def supply_role
+    return nil unless organization.present?
+    organization.organization_role.name
+  end
+  
   def set_role_id
     if self.organization.users == 0
       self.role_id = Role.admin_role_id
