@@ -1,0 +1,17 @@
+<% object_type = object.class.name.downcase %>
+
+<td class="actions">
+  <center>
+    <% if can? :view, object %>
+      <%= link_to "view", object, class: "view" %>
+    <% end %>
+
+    <% if can? :update, object %>
+      <a href="/#{object_type.pluralize}/#{object.id}/edit" class='edit'>edit</a>
+    <% end %>
+
+    <% if can? :destroy, object %>
+      <%= link_to "delete", object, confirm: 'Are you sure?', method: :delete, class: "delete"%>
+    <% end %>
+  </center>
+</td>

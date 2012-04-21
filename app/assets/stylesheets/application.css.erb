@@ -50,3 +50,33 @@
 	font-size: 1.4em;
 }
 
+td.actions {
+	width: 200px;
+}
+td.actions a {
+	height: 16px;
+	width: 32px;
+	background-repeat: no-repeat;
+	display: inline-block;
+	text-decoration: none;
+	margin-right: 10px;
+	font-size: 9px;
+	padding-left: 18px;
+	text-align: left;
+}
+
+td.actions a:hover {
+	background: none;
+}
+
+td.actions a.view {
+	background: url(<%= asset_path "find_16.png" %>) no-repeat;
+}
+
+td.actions a.edit {
+	background: url(<%= asset_path "edit_16.png" %>) no-repeat;
+}
+
+td.actions a.delete {
+	background: url(<%= asset_path "cross_16.png" %>) no-repeat;
+}
