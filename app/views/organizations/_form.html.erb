@@ -1,6 +1,8 @@
 <div class="mws-panel grid_5 center-panel">
   <div class="mws-panel-header">
-    <span class="mws-i-24 i-companies">Register Organization</span>
+    <span class="mws-i-24 i-companies">
+      <%= @organization.new_record? ? "Register organization" : "Edit #{@organization.name}" %>
+    </span>
   </div>
 
   <div class="mws-panel-body">
@@ -61,7 +63,8 @@
           </div>
         </div>
         <div class="mws-button-row">
-          <%= f.submit "Register Organization", class: "mws-button red" %>
+          <% button_message = @organization.new_record? ? "Add organization" : "Save changes" %>
+          <%= f.submit button_message, class: "mws-button red" %>
         </div>
       </div>
     <% end %>
