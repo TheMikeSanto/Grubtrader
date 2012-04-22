@@ -11,14 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120420224243) do
+ActiveRecord::Schema.define(:version => 20120422234706) do
 
   create_table "donation_lines", :force => true do |t|
-    t.integer  "inventory_id"
     t.integer  "donation_id"
     t.integer  "quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "product_id"
   end
 
   create_table "donations", :force => true do |t|
@@ -39,11 +39,11 @@ ActiveRecord::Schema.define(:version => 20120420224243) do
 
   create_table "order_lines", :force => true do |t|
     t.integer  "order_id"
-    t.integer  "inventory_id"
     t.integer  "quantity_filled"
     t.integer  "quantity_requested"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "product_id"
   end
 
   create_table "orders", :force => true do |t|

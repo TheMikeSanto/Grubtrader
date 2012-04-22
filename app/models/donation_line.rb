@@ -1,4 +1,4 @@
 class DonationLine < ActiveRecord::Base
 	belongs_to :donation
-	belongs_to :inventory
+	belongs_to :product
 end
