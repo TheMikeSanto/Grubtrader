@@ -10,6 +10,7 @@ class Ability
     can [:create, :read, :view], Organization
     can :read, OrganizationRole
     can :read, Role
+    can :read, Unit
 
     if user.is_producer?
       can :manage, Donation, organization_id: user.organization_id
@@ -22,7 +23,6 @@ class Ability
       can :manage, Inventory
       can :view, Product
       can :update, Organization, id: user.organization_id
-
     end
 
     if user.is_admin?
