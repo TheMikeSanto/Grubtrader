@@ -1,15 +1,80 @@
-<p id="notice"><%= notice %></p>
+<div class="mws-panel grid_5">
+	<div class="mws-panel-header main_header">
+		<span class="mws-i-24 i-plus">
+			Donation #<%= @donation.id %>
+		</span>
+	</div>
 
-<p>
-  <b>User:</b>
-  <%= @donation.user_id %>
-</p>
+	<div class="mws-panel-body">
+		<div class="about">
+			<div class="item">
+				<span class="label">
+			  	donated on
+		  	</span>
+		  	<span class="data">
+		  		<%= @donation.created_at %>
+	  		</span>
+  		</div>
 
-<p>
-  <b>Date:</b>
-  <%= @donation.date %>
-</p>
+  		<hr>
 
+			<div class="item">
+				<span class="label">
+					by
+				</span>
+				<span class="data">
+					<%= @donation.organization.name %>
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
 
-<%= link_to 'Edit', edit_donation_path(@donation) %> |
-<%= link_to 'Back', donations_path %>
+<div class="mws-panel grid_3 options">
+	<div class="mws-panel-header">
+		<span>Options</span>
+	</div>
+
+	<div class="mws-panel-body">
+		<center>
+			<% if can? :edit, @donation %>
+				<%= link_to 'edit', edit_donation_path(@donation), class: "mws-button green" %>
+			<% end %>
+
+			<% if can? :destroy, @donation %>
+				<%= link_to 'delete', @donation, method: :Delete, class: "mws-button red" %>
+			<% end %>
+		</center>
+	</div>
+</div>
+
+<div class="mws-panel grid_8 table">
+	<div class="mws-panel-header">
+		<span>Items donated</span>
+	</div>
+
+	<div class="mws-panel-body">
+    <table class="mws-datatable-fn mws-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Amount</th>
+          <th>Date picked</th>
+          <th>Date expires</th>
+        </tr>
+      </thead>
+        <tbody>
+          <% @donation.donation_lines.each do |line| %>
+            <tr class="gradeX">
+              <td><%= line.product.name %></td>
+              <td>
+              	<%= line.quantity %> <%= line.product.unit.name %>
+              </td>
+              <td><%= line.picked_date %></td>
+              <td><%= line.picked_date %></td>
+            </tr>
+          <% end %>
+        </tbody>
+    </table>
+  </div>
+</div>

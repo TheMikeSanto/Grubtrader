@@ -3,4 +3,8 @@ class Donation < ActiveRecord::Base
 	has_many :donation_lines, dependent: :destroy
 
 	accepts_nested_attributes_for :donation_lines
+
+	def organization
+		user.organization
+	end
 end
