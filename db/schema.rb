@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(:version => 20120423192426) do
 
   create_table "order_lines", :force => true do |t|
     t.integer  "order_id"
-    t.integer  "quantity_filled"
+    t.integer  "quantity_filled", :default => false
     t.integer  "quantity_requested"
     t.datetime "created_at"
     t.datetime "updated_at"

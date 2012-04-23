@@ -3,7 +3,7 @@ class CreateOrderLines < ActiveRecord::Migration
     create_table :order_lines do |t|
       t.integer :order_id
       t.integer :inventory_id
-      t.integer :quantity_filled
+      t.integer :quantity_filled, default: 0
       t.integer :quantity_requested
 
       t.timestamps
