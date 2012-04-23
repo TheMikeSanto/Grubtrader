@@ -7,4 +7,16 @@ class Donation < ActiveRecord::Base
 	def organization
 		user.organization
 	end
+
+	def expired?
+		expired = true
+		donation_lines.each do |line|
+			# Check for the existence of a non-expired donation line
+			# if the donation header still has non-expired lines, it is not expired
+			if DateTime.now < line.expires_at
+				expired = false
+			end
+		end
+		expired
+	end
 end

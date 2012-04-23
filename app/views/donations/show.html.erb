@@ -12,7 +12,7 @@
 			  	donated on
 		  	</span>
 		  	<span class="data">
-		  		<%= @donation.created_at %>
+		  		<%= formatted_date(@donation.created_at) %>
 	  		</span>
   		</div>
 
@@ -70,8 +70,8 @@
               <td>
               	<%= line.quantity %> <%= line.product.unit.name %>
               </td>
-              <td><%= line.picked_date %></td>
-              <td><%= line.picked_date %></td>
+              <td><%= formatted_date(line.picked_date) %></td>
+              <td><%= formatted_date(line.expires_at) %></td>
             </tr>
           <% end %>
         </tbody>

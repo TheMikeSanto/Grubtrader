@@ -16,7 +16,7 @@
         <tbody>
           <% @donations.each do |donation| %>
             <tr class="gradeX">
-                <td><%= donation.created_at %></td>
+                <td><%= formatted_date(donation.created_at) %></td>
                 <td><%= donation.user.organization.name %></td>
                 <td><%= donation.user.name %></td>
                 <td>

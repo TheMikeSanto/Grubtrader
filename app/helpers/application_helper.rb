@@ -8,6 +8,10 @@ module ApplicationHelper
 		"error"
 	end
 
+	def formatted_date(date)
+		date.strftime("%D")
+	end
+	
 	def options_for_organization_select
 		Organization.scoped.map{ |org| [org.name, org.id]}
 	end
