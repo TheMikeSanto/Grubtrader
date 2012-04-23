@@ -12,7 +12,7 @@ Foodbank::Application.routes.draw do
 
   resources :order_lines
 
-  resources :inventories
+  match "/inventory" => "inventory#index"
 
   resources :units
 

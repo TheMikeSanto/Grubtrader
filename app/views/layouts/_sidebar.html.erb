@@ -25,8 +25,8 @@
       	 <li class="<%= active_page_class("donations") %>"><%= link_to "Donations", donations_path, class: "mws-i-24 i-plus" %></li>
       <% end %>
 
-      <% if can? :view, Inventory %>
-        <li class="<%= active_page_class("inventories") %>"><%= link_to "Inventory", inventories_path, class: "mws-i-24 i-dropbox" %></li>
+      <% if can? :view, :inventory %>
+        <li class="<%= active_page_class("inventory") %>"><%= link_to "Inventory", inventory_path, class: "mws-i-24 i-dropbox" %></li>
       <% end %>
 
       <% if can? :view, Product %>

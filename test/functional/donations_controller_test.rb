@@ -7,7 +7,13 @@ class DonationsControllerTest < ActionController::TestCase
     @user = users(:user1)
     sign_in @user
     @donation = donations(:one)
+    @donation_line = donation_lines(:one)
+    @donation_line.update_attributes(donation_id: @donation.id)
   end
+
+  test "donation should have a donation_line" do
+    assert (not @donation.donation_lines.empty?)
+  end 
 
   test "should get index" do
     get :index

@@ -20,7 +20,7 @@ class Ability
       can :manage, Order, organization_id: user.organization_id
       can :view, Donation
       can :manage, Report
-      can :manage, Inventory
+      can :view, :inventory
       can :view, Product
       can :update, Organization, id: user.organization_id
     end

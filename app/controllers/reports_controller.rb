@@ -24,7 +24,6 @@ class ReportsController < ApplicationController
   # GET /reports/new
   # GET /reports/new.json
   def new
-    @report = Report.new
 
     respond_to do |format|
       format.html # new.html.erb
