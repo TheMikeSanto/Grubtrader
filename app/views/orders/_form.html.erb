@@ -1,29 +1,47 @@
-<%= form_for(@order) do |f| %>
-  <% if @order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+<div class="mws-panel grid_5 center-panel">
+  <div class="mws-panel-header">
+    <span class="mws-i-24 i-shopping-cart">
+      <%= @order.new_record? ? "Order" : "Edit order ##{@order.id}"%>
+    </span>
+  </div>
 
-      <ul>
-      <% @order.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+  <div class="mws-panel-body">
+    <%= form_for(@order, html: {class: "mws-form"}) do |f| %>
+      <% if @order.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+          <ul>
+          <% @order.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :request_date %><br />
-    <%= f.date_select :request_date %>
+      <div class="mws-form-inline">
+        <%= f.fields_for :order_lines do |lf| %>
+          <div class="mws-form-row">
+            <%= lf.label "Produce type" %>
+            <div class="mws-form-item small">
+              <%= lf.select :product_id, options_for_product_select, include_blank: true , class: "mws-textinput" %>
+            </div>
+          </div>
+
+          <div class="mws-form-row">
+            <%= lf.label "Quantity" %>
+            <div class="mws-form-item small quantity">
+              <%= lf.text_field :quantity_requested, class: "mws-textinput", autofocus: true %>
+              pounds
+            </div>
+          </div>
+        <% end %>
+
+        <div class="mws-button-row">
+          <% button_message = @order.new_record? ? "Add order" : "Save changes" %>
+          <%= f.submit button_message, class: "mws-button red" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :filled_date %><br />
-    <%= f.date_select :filled_date %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

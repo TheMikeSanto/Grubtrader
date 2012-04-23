@@ -25,6 +25,7 @@ class OrdersController < ApplicationController
   # GET /orders/new.json
   def new
     @order = Order.new
+    @order.order_lines.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,6 +42,7 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(params[:order])
+    @order.user = current_user
 
     respond_to do |format|
       if @order.save
