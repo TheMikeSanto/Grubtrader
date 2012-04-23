@@ -1,26 +1,20 @@
 <div class="mws-panel grid_8">
   <div class="mws-panel-header main_header">
-    <span class="mws-i-24 i-group-2">Inventory</span>
+    <span class="mws-i-24 i-dropbox">Inventory</span>
   </div>
   <div class="mws-panel-body">
     <table class="mws-datatable-fn mws-table">
         <thead>
             <tr>
-                <th>Picked Date</th>
                 <th>Product</th>
                 <th>On Hand</th>
-                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-          <% @inventories.each do |inventory| %>
+          <% @products.each do |product| %>
             <tr class="gradeX">
-                <td><%= inventory.picked_date %></td>
-                <td><%= inventory.product.name %></td>
-                <td><%= inventory.on_hand %></td>      
-                <td><%= link_to 'Show', inventory %>
-                    <%= link_to 'Edit', edit_inventory_path(inventory) %>
-                    <%= link_to 'Destroy', inventory, confirm: 'Are you sure?', method: :delete %></td>
+                <td><%= product.name %></td>
+                <td><%= product.inventory %></td>  
             </tr>
           <% end %>
         </tbody>
