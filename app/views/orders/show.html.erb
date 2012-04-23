@@ -1,20 +1,80 @@
-<p id="notice"><%= notice %></p>
+<div class="mws-panel grid_5">
+	<div class="mws-panel-header main_header">
+		<span class="mws-i-24 i-shopping-cart">
+			Order #<%= @order.id %>
+		</span>
+	</div>
 
-<p>
-  <b>Request date:</b>
-  <%= @order.request_date %>
-</p>
+	<div class="mws-panel-body">
+		<div class="about">
+			<div class="item">
+				<span class="label">
+			  	placed on
+		  	</span>
+		  	<span class="data">
+		  		<%= formatted_date(@order.created_at) %>
+	  		</span>
+  		</div>
 
-<p>
-  <b>Filled date:</b>
-  <%= @order.filled_date %>
-</p>
+  		<hr>
 
-<p>
-  <b>User:</b>
-  <%= @order.user_id %>
-</p>
+			<div class="item">
+				<span class="label">
+					by
+				</span>
+				<span class="data">
+					<%= @order.organization.name %>
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
 
+<div class="mws-panel grid_3 options">
+	<div class="mws-panel-header">
+		<span>Options</span>
+	</div>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+	<div class="mws-panel-body">
+		<center>
+			<% if can? :edit, @order %>
+				<%= link_to 'edit', edit_order_path(@order), class: "mws-button green" %>
+			<% end %>
+
+			<% if can? :destroy, @order %>
+				<%= link_to 'delete', @order, method: :Delete, class: "mws-button red" %>
+			<% end %>
+		</center>
+	</div>
+</div>
+
+<div class="mws-panel grid_8 table">
+	<div class="mws-panel-header">
+		<span>Products ordered</span>
+	</div>
+
+	<div class="mws-panel-body">
+    <table class="mws-datatable-fn mws-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Amount requested</th>
+          <th>Amount filled</th>
+        </tr>
+      </thead>
+        <tbody>
+          <% @order.order_lines.each do |line| %>
+            <tr class="gradeX">
+              <td><%= line.product.name %></td>
+              <td>
+              	<%= line.quantity_requested %> <%= line.product.unit.name %>
+              </td>
+              <td>
+              	<%= line.quantity_filled %> <%= line.unit.name %>
+            	</td>
+            </tr>
+          <% end %>
+        </tbody>
+    </table>
+  </div>
+</div>
