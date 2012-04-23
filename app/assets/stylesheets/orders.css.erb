@@ -1,0 +1,26 @@
+.mws-form-row a {
+	height: 16px;
+	width: 64px;
+	background-repeat: no-repeat;
+	display: inline-block;
+	text-decoration: none;
+	margin-right: 10px;
+	font-size: 10px;
+	padding-left: 18px;
+	text-align: left;
+	float: right;
+}
+
+.mws-form-row a:hover {
+	background: none;
+	color: #333;
+	font-weight: bold;
+}
+
+.mws-form-row a.add {
+	background: url(<%= asset_path "plus-circle.png" %>) no-repeat;
+}
+
+.mws-form-row a.remove {
+	background: url(<%= asset_path "minus-circle.png" %>) no-repeat;
+}

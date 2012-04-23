@@ -21,20 +21,15 @@
 
       <div class="mws-form-inline">
         <%= f.fields_for :order_lines do |lf| %>
-          <div class="mws-form-row">
-            <%= lf.label "Produce type" %>
-            <div class="mws-form-item small">
-              <%= lf.select :product_id, options_for_product_select, include_blank: true , class: "mws-textinput" %>
-            </div>
+          <div class="order_line visible">
+            <%= render partial: "order_line", locals: {lf: lf} %>
           </div>
 
-          <div class="mws-form-row">
-            <%= lf.label "Quantity" %>
-            <div class="mws-form-item small quantity">
-              <%= lf.text_field :quantity_requested, class: "mws-textinput", autofocus: true %>
-              pounds
+          <% 9.times do %>
+            <div class="order_line hidden" style="display: none;">
+              <%= render partial: "order_line", locals: {lf: lf} %>
             </div>
-          </div>
+          <% end %>
         <% end %>
 
         <div class="mws-button-row">
