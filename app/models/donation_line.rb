@@ -1,6 +1,7 @@
 class DonationLine < ActiveRecord::Base
 	belongs_to :donation
 	belongs_to :product
+	has_one :unit, through: :product
 
 	if Rails.env != "test"
 		before_validation :convert_date_to_datetime
@@ -10,8 +11,6 @@ class DonationLine < ActiveRecord::Base
 	scope :unexpired, conditions: ["expired = ?", false]
 
 	def convert_date_to_datetime
-		puts "PICKED: #{picked_date}\n #{picked_date_before_type_cast} %>"
-
 		picked_date = DateTime.parse(picked_date_before_type_cast)
 	end
 
