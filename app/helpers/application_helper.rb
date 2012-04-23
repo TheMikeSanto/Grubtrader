@@ -35,4 +35,16 @@ module ApplicationHelper
 	def options_for_role_select
 		Role.scoped.map{ |role| [role.name, role.id] }
 	end
+
+	def line_item_summary(line)
+		if line.is_a? OrderLine
+			summary = line.quantity_requested.to_s
+		elsif line.is_a? DonationLine
+			summary = line.quantity.to_s
+		else
+			return nil
+		end
+
+		[summary, line.product.unit.name, line.product.name.downcase].join(" ")
+	end
 end
