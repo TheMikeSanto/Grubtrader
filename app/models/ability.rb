@@ -17,7 +17,7 @@ class Ability
     end
 
     if user.is_distributor?
-      can :manage, Order, organization_id: user.organization_id
+      can :manage, Order, user: {organization_id: user.organization_id}
       can :view, Donation
       can :manage, Report
       can :view, :inventory
