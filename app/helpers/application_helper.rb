@@ -12,6 +12,10 @@ module ApplicationHelper
 		Organization.scoped.map{ |org| [org.name, org.id]}
 	end
 
+	def options_for_product_select
+		Product.scoped.map{ |pc| [pc.name, pc.id]}
+	end
+	
 	def options_for_product_category_select
 		ProductCategory.scoped.map{ |pc| [pc.name, pc.id] }
 	end

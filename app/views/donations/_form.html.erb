@@ -1,3 +1,44 @@
+<div class="mws-panel grid_5 center-panel">
+  <div class="mws-panel-header">
+    <span class="mws-i-24 i-plus">
+      <%= @donation.new_record? ? "Donate produce" : "Edit donation ##{@donation.id}"%>
+    </span>
+  </div>
+
+  <div class="mws-panel-body">
+    <%= form_for(@donation, html: {class: "mws-form"}) do |f| %>
+      <% if @donation.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@donation.errors.count, "error") %> prohibited this donation from being saved:</h2>
+
+          <ul>
+          <% @donation.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="mws-form-inline">
+        <%= f.fields_for :donation_lines do |lf| %>
+          <div class="mws-form-row">
+            <%= lf.label "Produce type" %>
+            <div class="mws-form-item medium">
+              <%= lf.select :product_id, options_for_product_select,class: "mws-textinput" %>
+            </div>
+          </div>
+        <% end %>
+
+        <div class="mws-button-row">
+          <% button_message = @donation.new_record? ? "Add donation" : "Save changes" %>
+          <%= f.submit button_message, class: "mws-button red" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
 <%= form_for(@donation) do |f| %>
   <% if @donation.errors.any? %>
     <div id="error_explanation">

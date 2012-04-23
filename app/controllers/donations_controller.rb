@@ -25,6 +25,7 @@ class DonationsController < ApplicationController
   # GET /donations/new.json
   def new
     @donation = Donation.new
+    @donation.donation_lines.build
 
     respond_to do |format|
       format.html # new.html.erb
