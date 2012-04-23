@@ -7,7 +7,8 @@ class Product < ActiveRecord::Base
 		shelf_life_time.to_s + " " + shelf_life_span
 	end
 
-	def inventory
+	# Returns the number of non-expired donations available
+	def available
 		inventory = 0
 		DonationLine.unexpired.where(product_id: id).map { |line| inventory += line.quantity}
 		inventory

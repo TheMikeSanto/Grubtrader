@@ -8,13 +8,15 @@
             <tr>
                 <th>Product</th>
                 <th>On Hand</th>
+                <th>Available</th>
             </tr>
         </thead>
         <tbody>
           <% @products.each do |product| %>
             <tr class="gradeX">
                 <td><%= product.name %></td>
-                <td><%= product.inventory %></td>  
+                <td>0</td>
+                <td><%= product.available %> <%= product.unit.name %></td>  
             </tr>
           <% end %>
         </tbody>
