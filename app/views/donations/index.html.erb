@@ -23,7 +23,7 @@
                   <ul id="items">
                     <% donation.donation_lines.each do |line| %>
                       <li>
-                        <%= line.quantity %> <%= line.product.unit.name %> <%= line.product.name.downcase %>
+                        <%= line_item_summary(line) %>
                       </li>
                     <% end %>
                   </ul>
