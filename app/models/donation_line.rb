@@ -4,6 +4,9 @@ class DonationLine < ActiveRecord::Base
 
 	before_validation :convert_date_to_datetime
 
+	scope :expired, conditions: ["expired = ?", true]
+	scope :unexpired, conditions: ["expired = ?", false]
+
 	def convert_date_to_datetime
 		picked_date = DateTime.parse(picked_date_before_type_cast)
 	end

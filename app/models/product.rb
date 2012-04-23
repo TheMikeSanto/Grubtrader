@@ -6,4 +6,10 @@ class Product < ActiveRecord::Base
 	def full_shelf_life
 		shelf_life_time.to_s + " " + shelf_life_span
 	end
+
+	def inventory
+		inventory = 0
+		DonationLine.unexpired.where(product_id: id).map { |line| inventory += line.quantity}
+		inventory
+	end
 end
