@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(:version => 20120424025305) do
 
   create_table "inventories", :force => true do |t|
     t.integer  "order_line_id"
-    t.integer  "donation_line_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
