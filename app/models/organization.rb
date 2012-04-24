@@ -7,4 +7,8 @@ class Organization < ActiveRecord::Base
 	def role
 		organization_role
 	end
+
+	def address
+		street + " " + city + ", " + state + " " + zip
+	end
 end
