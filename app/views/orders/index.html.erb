@@ -32,7 +32,7 @@
                   </ul>
                 </td>
 
-                <td><%= order.filled_date.present? ? order.filled_date : "unfilled" %></td>
+                <td><%= order.filled? ? "filled" : "unfilled" %></td>
                 <%= render partial: "layouts/action_button", locals: {object: order} %>
             </tr>
           <% end %>
