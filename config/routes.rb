@@ -8,11 +8,7 @@ Foodbank::Application.routes.draw do
 
   resources :donations
 
-  resources :orders do
-    member do
-      get :match
-    end
-  end
+  resources :orders
 
   resources :order_lines
 
