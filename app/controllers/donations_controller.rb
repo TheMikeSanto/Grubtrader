@@ -41,7 +41,7 @@ class DonationsController < ApplicationController
   # POST /donations
   # POST /donations.json
   def create
-    if parans[:donation][:donation_lines_attributes]
+    if params[:donation][:donation_lines_attributes]
       params[:donation][:donation_lines_attributes].each do |dl|
         if dl[1][:product_id] == "" || dl[1][:quantity] == "" || dl[1][:picked_date] == ""
           params[:donation][:donation_lines_attributes].delete(dl[0])
