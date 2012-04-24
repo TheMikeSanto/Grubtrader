@@ -16,6 +16,10 @@ class DonationLine < ActiveRecord::Base
 
 	validates :picked_date, donation_not_expired: true
 
+	def organization
+		donation.organization
+	end
+	
 	def convert_date_to_datetime
 		return if picked_date.is_a? ActiveSupport::TimeWithZone
 		picked_date = DateTime.parse(picked_date_before_type_cast)
