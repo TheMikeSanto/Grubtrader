@@ -17,6 +17,14 @@ class Order < ActiveRecord::Base
 		filled
 	end
 
+	def involved_organization_ids
+		ids = []
+		order_lines.each do |line|
+			ids << line.donation_line.donation.organization.id
+		end
+		ids.uniq
+	end
+
 	def create_inventory
 		order_lines.each do |line|
 			donations = DonationLine.available.where(product_id: line.product_id)
