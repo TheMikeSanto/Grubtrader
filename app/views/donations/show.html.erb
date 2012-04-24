@@ -64,14 +64,14 @@
         </tr>
       </thead>
         <tbody>
-          <% @donation.donation_lines.each do |line| %>
+          <% @donation.products.each do |product| %>
             <tr class="gradeX">
-              <td><%= line.product.name %></td>
+              <td><%= product.name %></td>
               <td>
-              	<%= line.quantity %> <%= line.product.unit.name %>
+              	<%= @donation.total_product_quantity(product) %> <%= product.unit.name %>
               </td>
-              <td><%= formatted_date(line.picked_date) %></td>
-              <td><%= formatted_date(line.expires_at) %></td>
+              <td><%= formatted_date(@donation.donation_lines.where(product_id: product.id).first.picked_date) %></td>
+              <td><%= formatted_date(@donation.donation_lines.where(product_id: product.id).first.expires_at) %></td>
             </tr>
           <% end %>
         </tbody>

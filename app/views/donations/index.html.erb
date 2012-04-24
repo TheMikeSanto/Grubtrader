@@ -21,9 +21,9 @@
                 <td><%= donation.user.name %></td>
                 <td>
                   <ul id="items">
-                    <% donation.donation_lines.each do |line| %>
+                    <% donation.products.each do |product| %>
                       <li>
-                        <%= line_item_summary(line) %>
+                        <%= donation_product_summary(donation, product) %>
                       </li>
                     <% end %>
                   </ul>
