@@ -15,7 +15,7 @@
           <% @products.each do |product| %>
             <tr class="gradeX">
                 <td><%= product.name %></td>
-                <td>0</td>
+                <td><%= product.on_hand %> <%= product.unit.name %></td>
                 <td><%= product.available %> <%= product.unit.name %></td>  
             </tr>
           <% end %>

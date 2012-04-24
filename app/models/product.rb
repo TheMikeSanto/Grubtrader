@@ -9,8 +9,14 @@ class Product < ActiveRecord::Base
 	# Returns the number of non-expired donations available
 	def available
 		available = 0
-		DonationLine.unexpired.where(product_id: id).map { |line| available += line.quantity}
+		DonationLine.unexpired.where(product_id: id).where(inventory_id: nil).map { |line| available += line.quantity}
 		available
+	end
+
+	def on_hand
+		on_hand = 0
+		DonationLine.unexpired.where(product_id: id).where("inventory_id IS NOT NULL").map { |line| on_hand += line.quantity }
+		on_hand
 	end
 
 	def in_stock?
