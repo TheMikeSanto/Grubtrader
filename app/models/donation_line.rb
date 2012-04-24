@@ -5,7 +5,8 @@ class DonationLine < ActiveRecord::Base
 	scope :available, conditions: {inventory_id: nil}
 
 	default_scope order('created_at ASC')
-	
+
+	after_create :check_expired
 	if Rails.env != "test"
 		before_validation :convert_date_to_datetime
 	end
@@ -13,7 +14,7 @@ class DonationLine < ActiveRecord::Base
 	scope :expired, conditions: ["expired = ?", true]
 	scope :unexpired, conditions: ["expired = ?", false]
 
-	after_create :check_expired
+	validates :picked_date, donation_not_expired: true
 
 	def convert_date_to_datetime
 		picked_date = DateTime.parse(picked_date_before_type_cast)
