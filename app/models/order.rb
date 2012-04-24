@@ -56,7 +56,7 @@ class Order < ActiveRecord::Base
 						donation.update_attributes(inventory_id: inventory.id)
 						line.destroy #destroy original since we have two others that represent it 
 					elsif donation.quantity == line.quantity_requested
-						Inventory.create(order_line_id: line.id)
+						inventory = Inventory.create(order_line_id: line.id)
 						donation.update_attributes(inventory_id: inventory.id)
 						line.update_attributes(quantity_filled: line.quantity_requested)
 					end

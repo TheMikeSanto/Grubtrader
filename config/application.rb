@@ -47,6 +47,7 @@ module Foodbank
 
     config.assets.initialize_on_precompile = false
 
-    config.autoload_paths += Dir["#{config.root}/lib/**/"]  
+    config.autoload_paths += Dir["#{config.root}/lib/**/"]
+    config.active_record.observers = :order_observer
   end
 end
