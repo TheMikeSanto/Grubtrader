@@ -57,4 +57,12 @@ module ApplicationHelper
 
 		[summary, line.product.unit.name, line.product.name.downcase].join(" ")
 	end
+
+	def out_of_stock?
+		out_of_stock = false
+		Product.scoped.each do |p|
+			(out_of_stock = true) if p.in_stock?
+		end
+		return out_of_stock
+	end
 end
