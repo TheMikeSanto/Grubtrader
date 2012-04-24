@@ -7,7 +7,7 @@ class OrderObserver < ActiveRecord::Observer
 		order.order_lines.each do |line|
 			donations = Inventory.find_by_order_line_id(line.id).donation_lines
 			donations.each do |donation|
-				OrderMailer.notify_donator(order, donation)
+				OrderMailer.notify_donor(order, donation)
 			end
 		end
 	end
