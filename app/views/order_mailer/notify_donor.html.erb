@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>You have items awaiting pickup</h1>
+    <p>
+      <%= @order.user.name %> from <%= @order.organization.name %> has requested to pick up the following items:
+    </p>
+			<ul>
+				<li><%= @donation_line.quantity %> <%= @donation_line.product.unit.name %> <%= @donation_line.product.name %></li>
+			</ul>
+    <p>
+      Please contact <%= @order.organization.name %> to arrange a time for pickup. You can contact them at:
+		</p>
+		<ul>
+			<li><%= @order.organization.email %></li>
+			<li><%= @order.organization.phone %></li>
+			<li><%= @order.organization.address %></li>
+		</ul>
+  </body>
+</html>
