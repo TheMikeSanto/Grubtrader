@@ -50,7 +50,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<% @organizations.each do |org| %>
+				<% Organization.where(id: @order.involved_organization_ids).each do |org| %>
 					<tr>
 						<%= td_tag %><%= org.name %></td>
 						<%= td_tag %><%= org.email %></td>
