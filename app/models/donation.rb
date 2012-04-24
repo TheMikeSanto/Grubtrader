@@ -7,6 +7,19 @@ class Donation < ActiveRecord::Base
 
 	default_scope order('created_at ASC')
 
+	def products
+		product_ids = donation_lines.map{ |line| line.product_id }.uniq
+		Product.where(id: product_ids)
+	end
+
+	def total_product_quantity(product)
+		product_quantity = 0
+		donation_lines.where(product_id: product.id).each do |line|
+			product_quantity += line.quantity
+		end
+		product_quantity
+	end
+
 	def expired?
 		expired = true
 		donation_lines.each do |line|
