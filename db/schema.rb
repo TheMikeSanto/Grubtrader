@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120423192426) do
+ActiveRecord::Schema.define(:version => 20120424024238) do
 
   create_table "donation_lines", :force => true do |t|
     t.integer  "donation_id"
@@ -30,9 +30,16 @@ ActiveRecord::Schema.define(:version => 20120423192426) do
     t.integer  "organization_id"
   end
 
+  create_table "inventories", :force => true do |t|
+    t.integer  "order_line_id"
+    t.integer  "donation_line_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "order_lines", :force => true do |t|
     t.integer  "order_id"
-    t.integer  "quantity_filled", :default => 0
+    t.integer  "quantity_filled",    :default => 0
     t.integer  "quantity_requested"
     t.datetime "created_at"
     t.datetime "updated_at"
