@@ -29,9 +29,14 @@ $("#new_order select").change(function() {
 	line_item = selected.closest(".line_item");
 	product 	= selected.html();
 	unit 			= $("tr." + product).data("unit");
+	amount_regex = /[a-zA-Z0-9]/;
+	amount		= amount_regex.exec($("tr." + product + " td")
+							.last().text());
 
+	console.log(amount);
 	// Enable the quantity box and show the unit next to it
-	line_item.find(".quantity").removeAttr('disabled');
+	line_item.find(".quantity").removeAttr('disabled')
+		.val(amount);
 	line_item.find(".unit").html(unit);
 
 	update_disabled_selections();	
