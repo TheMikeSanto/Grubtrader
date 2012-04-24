@@ -20,13 +20,15 @@
       <% end %>
 
       <div class="mws-form-inline">
-        <%= f.fields_for :order_lines do |lf| %>
-          <div class="order_line visible">
-            <%= render partial: "order_line", locals: {lf: lf} %>
-          </div>
+        <% 10.times.each_with_index do |index|%>
+          <%= f.fields_for :order_lines do |lf| %>
+            <% if index == 0 %>
+              <% div_class = "visible"; div_style = "" %>
+            <% else %>
+              <% div_class = "hidden"; div_style = "display: none;" %>
+            <% end %>
 
-          <% 9.times do %>
-            <div class="order_line hidden" style="display: none;">
+            <div class="order_line <%= div_class %>" style="<%= div_style %>">
               <%= render partial: "order_line", locals: {lf: lf} %>
             </div>
           <% end %>

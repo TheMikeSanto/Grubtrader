@@ -41,6 +41,12 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
+    params[:order][:order_lines_attributes].each do |ol|
+      if ol[1][:product_id] == "" || ol[1][:quantity_requested] == ""
+        params[:order][:order_lines_attributes].delete(ol[0])
+      end
+    end
+
     @order = Order.new(params[:order])
     @order.user = current_user
 
