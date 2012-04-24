@@ -12,7 +12,7 @@ class OrderMailer < ActionMailer::Base
   	@donation = donation_line.donation
   	@donor = @donation.user
   	@order = order
+    @organizations = Organization.where(id: order.involved_organization_ids)
   	mail(to: @donor.email, subject: "An item you donated needs pickup - Donation ##{@donation.id})")
 	end
-
 end

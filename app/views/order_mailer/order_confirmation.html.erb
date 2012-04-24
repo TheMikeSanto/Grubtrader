@@ -2,15 +2,65 @@
 <html>
   <head>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+		<style type="text/css">
+			h3 { margin: 2px 0px;}
+			hr { margin: 4px 0px;}
+			td { border: 1px solid #333; padding: 10px;}
+			table { margin-left: auto; margin-right: auto;}
+		</style>
   </head>
   <body>
-    <h1>Order confirmation: order #<%= @order.id %></h1>
-    <p>
-      Your order has been successfully submitted! The donators have been notified and will be in contact
-			to arrange pick up shortly.
-    </p>
-    <p>
-      Thanks and have a great day!
+    <h3 style="margin: 2px 0px;">Order confirmation: Order #<%= @order.id %></h3>
+		<p>
+      Your order has been successfully submitted! The donors have been notified and are awaiting pickup for the following items:
 		</p>
+		<hr style="margin: 4px 0px;">
+		<table style="border: 1px solid #333; padding: 10px; margin-right: auto; margin-left: auto;">
+			<thead>
+				<tr>
+					<%= th_tag %>Product</th>
+					<%= th_tag %>Quantity</th>
+					<%= th_tag %>Expires</th>
+					<%= th_tag %>Donated By</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @order.order_lines.each do |line| %>
+					<tr>
+						<%= td_tag %><%= line.product.name %></td>
+						<%= td_tag %><%= line.quantity_filled %> <%= line.product.unit.name %></td>
+						<%= td_tag %><%= line.donation_line.expires_at.strftime("%m-%d-%Y") %></td>
+						<%= td_tag %><%= line.donation_line.donation.organization.name %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+
+		<p>
+			Below is contact information for the donor so you can arrange a time for pickup
+		</p>
+
+		<table style="border: 1px solid #333; padding: 10px; margin-right: auto; margin-left: auto;">
+			<thead>
+				<tr>
+					<%= th_tag %>Organization</th>
+					<%= th_tag %>Email</th>
+					<%= th_tag %>Phone</th>
+					<%= th_tag %>Address</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @organizations.each do |org| %>
+					<tr>
+						<%= td_tag %><%= org.name %></td>
+						<%= td_tag %><%= org.email %></td>
+						<%= td_tag %><%= org.phone %></td>
+						<%= td_tag %><%= org.address %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<hr>
+    <strong>Reminder:</strong> you must pick up the produce well before the listed expiration date or it will <strong>spoil</strong>.
   </body>
 </html>

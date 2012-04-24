@@ -4,20 +4,41 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <h1>You have items awaiting pickup</h1>
-    <p>
-      <%= @order.user.name %> from <%= @order.organization.name %> has requested to pick up the following items:
-    </p>
-			<ul>
-				<li><%= @donation_line.quantity %> <%= @donation_line.product.unit.name %> <%= @donation_line.product.name %></li>
-			</ul>
-    <p>
+    <h3 style="margin-bottom: 2px;">You have items awaiting pickup</h3>
+		<hr>
+    <%= @order.user.name %> from <%= @order.organization.name %> has requested to pick up the following items:
+		<table>
+			<thead>
+				<tr>
+					<th>Product</th>
+					<th>Quantity</th>
+					<th>Expires</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><%= @donation_line.product.name %></td>
+					<td><%= @donation_line.quantity %> <%= @donation_line.product.unit.name %></td>
+					<td><%= @donation_line.expires_at.strftime("%d-%m-%Y") %></td>
+				</tr>
+			</tbody>
+		</table>
       Please contact <%= @order.organization.name %> to arrange a time for pickup. You can contact them at:
-		</p>
-		<ul>
-			<li><%= @order.organization.email %></li>
-			<li><%= @order.organization.phone %></li>
-			<li><%= @order.organization.address %></li>
-		</ul>
+		<table>
+			<tr>
+				<td>Email</td>
+				<td><%= @order.organization.email %></td>
+			</tr>
+			<tr>
+				<td>Phone</td>
+				<td><%= @order.organization.phone %></td>
+			</tr>
+			<tr>
+				<td>Address</td>
+				<td><%= @order.organization.address %></td>
+			</tr>
+		</table>
+		<hr>
+		Thanks and have a great day!
   </body>
 </html>
