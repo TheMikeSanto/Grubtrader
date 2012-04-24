@@ -13,6 +13,8 @@ class DonationLine < ActiveRecord::Base
 	scope :expired, conditions: ["expired = ?", true]
 	scope :unexpired, conditions: ["expired = ?", false]
 
+	after_create :check_expired
+
 	def convert_date_to_datetime
 		picked_date = DateTime.parse(picked_date_before_type_cast)
 	end
@@ -37,5 +39,12 @@ class DonationLine < ActiveRecord::Base
 
 	def expired?
 		DateTime.now > expires_at
+	end
+
+	private
+
+	def check_expired
+		return true unless expired != expired?
+		update_attributes(expired: true)
 	end
 end
