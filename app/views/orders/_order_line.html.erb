@@ -2,15 +2,15 @@
 <div class="mws-form-row">
   <%= lf.label "Produce type" %>
   <div class="mws-form-item small">
-    <%= lf.select :product_id, options_for_product_select, include_blank: true , class: "mws-textinput" %>
+    <%= lf.select :product_id, options_for_in_stock_product_select, include_blank: true , class: "mws-textinput" %>
   </div>
 </div>
 
 <div class="mws-form-row">
   <%= lf.label "Quantity" %>
   <div class="mws-form-item small quantity">
-    <%= lf.text_field :quantity_requested, class: "mws-textinput", autofocus: true %>
-    pounds
+    <%= lf.text_field :quantity_requested, class: "mws-textinput quantity", autofocus: true, disabled: true%>
+    <span class="unit"></span>
   </div>
 </div>
 

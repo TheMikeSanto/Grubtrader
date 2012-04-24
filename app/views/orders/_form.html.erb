@@ -1,4 +1,29 @@
-<div class="mws-panel grid_5 center-panel">
+<div class="mws-panel grid_3">
+  <div class="mws-panel-header">
+    <span class="mws-i-24 i-leaf">
+      Product availability
+    </span>
+  </div>
+
+  <div class="mws-panel-body">
+    <table id="available">
+      <% Product.scoped.each do |p| %>
+        <tr class="<%= p.name %>" data-unit="<%= p.unit.name %>">
+          <td><%= p.name %></td>
+          <td>
+            <% if p.available > 0 %>
+              <%= p.available %>
+            <% else %>
+              <span class="out">out of stock</span>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<div class="mws-panel grid_5">
   <div class="mws-panel-header">
     <span class="mws-i-24 i-shopping-cart">
       <%= @order.new_record? ? "Order" : "Edit order ##{@order.id}"%>
@@ -20,7 +45,7 @@
       <% end %>
 
       <div class="mws-form-inline">
-        <% 10.times.each_with_index do |index|%>
+        <% Product.in_stock_count.times.each_with_index do |index|%>
           <%= f.fields_for :order_lines do |lf| %>
             <% if index == 0 %>
               <% div_class = "visible"; div_style = "" %>
