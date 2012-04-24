@@ -20,6 +20,16 @@ module ApplicationHelper
 		Product.scoped.map{ |pc| [pc.name, pc.id]}
 	end
 	
+	def options_for_in_stock_product_select
+		options = []
+		Product.scoped.each do |p|
+			if p.available > 0
+				options << [p.name, p.id]
+			end
+		end
+		options
+	end
+	
 	def options_for_product_category_select
 		ProductCategory.scoped.map{ |pc| [pc.name, pc.id] }
 	end
