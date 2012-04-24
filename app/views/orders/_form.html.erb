@@ -28,7 +28,7 @@
               <% div_class = "hidden"; div_style = "display: none;" %>
             <% end %>
 
-            <div class="order_line <%= div_class %>" style="<%= div_style %>">
+            <div class="line_item <%= div_class %>" style="<%= div_style %>">
               <%= render partial: "order_line", locals: {lf: lf} %>
             </div>
           <% end %>

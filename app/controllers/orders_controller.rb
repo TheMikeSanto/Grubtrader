@@ -52,7 +52,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
+        format.html { redirect_to match_order_path(@order), notice: 'Order was successfully created.' }
         format.json { render json: @order, status: :created, location: @order }
       else
         format.html { render action: "new" }
@@ -87,5 +87,9 @@ class OrdersController < ApplicationController
       format.html { redirect_to orders_url }
       format.json { head :ok }
     end
+  end
+
+  def match
+    @order = Order.find(params[:id])
   end
 end
