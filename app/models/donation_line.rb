@@ -2,7 +2,10 @@ class DonationLine < ActiveRecord::Base
 	belongs_to :donation
 	belongs_to :product
 	has_one :unit, through: :product
+	scope :available, conditions: {inventory_id: nil}
 
+	default_scope order('created_at ASC')
+	
 	if Rails.env != "test"
 		before_validation :convert_date_to_datetime
 	end

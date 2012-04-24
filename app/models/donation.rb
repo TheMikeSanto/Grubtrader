@@ -5,6 +5,8 @@ class Donation < ActiveRecord::Base
 
 	accepts_nested_attributes_for :donation_lines
 
+	default_scope order('created_at ASC')
+
 	def expired?
 		expired = true
 		donation_lines.each do |line|
