@@ -1,11 +1,11 @@
 $(document).ready(function(){
-	$(".order_line").first().find(".remove").addClass("hidden").hide();
+	$(".line_item").first().find(".remove").addClass("hidden").hide();
 
-	$(".order_line a").click(function() {
+	$(".line_item a").click(function() {
 		if ($(this).hasClass("add")) {
-			$(this).hide().closest(".order_line").next().removeClass("hidden").addClass("visible").show();
+			$(this).hide().closest(".line_item").next().removeClass("hidden").addClass("visible").show();
 		} else if ($(this).hasClass("remove")) {
-			$(this).closest(".order_line").addClass("hidden").remove()
+			$(this).closest(".line_item").addClass("hidden").remove()
 		}
 
 		visible = $(".visible");

@@ -20,29 +20,18 @@
       <% end %>
 
       <div class="mws-form-inline">
-        <%= f.fields_for :donation_lines do |lf| %>
-          <div class="mws-form-row">
-            <%= lf.label "Produce type" %>
-            <div class="mws-form-item small">
-              <%= lf.select :product_id, options_for_product_select, include_blank: true , class: "mws-textinput" %>
-              <div class="mws-info">
-                If the product you would like to donate isn't on this list, please <%= link_to "contact us", "#" %>.
-              </div>
+        <% 10.times.each_with_index do |index| %>
+          <%= f.fields_for :donation_lines do |lf| %>
+            <% if index == 0 %>
+              <% div_class = "visible"; div_style = "" %>
+            <% else %>
+              <% div_class = "hidden"; div_style = "display: none;" %>
+            <% end %>
+
+            <div class="line_item <%= div_class %>" style="<%= div_style %>">
+              <%= render partial: "donation_line", locals: {lf: lf} %>
             </div>
-          </div>
-          <div class="mws-form-row">
-            <%= lf.label "Quantity to be donated" %>
-            <div class="mws-form-item small quantity">
-              <%= lf.text_field :quantity, class: "mws-textinput",autofocus: true %>
-              pounds
-            </div>
-          </div>
-          <div class="mws-form-row">
-            <%= lf.label "Picked on " %>
-            <div class="mws-form-item small date">
-              <%= lf.text_field :picked_date, class: "mws-datepicker mws-textinput" %>
-            </div>
-          </div>
+          <% end %>
         <% end %>
 
         <div class="mws-button-row">

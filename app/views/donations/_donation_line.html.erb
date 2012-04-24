@@ -1,0 +1,35 @@
+<hr>
+<div class="mws-form-row">
+  <%= lf.label "Produce type" %>
+  <div class="mws-form-item small">
+    <%= lf.select :product_id, options_for_product_select, include_blank: true , class: "mws-textinput" %>
+    <div class="mws-info">
+      If the product you would like to donate isn't on this list, please <%= link_to "contact us", "#" %>.
+    </div>
+  </div>
+</div>
+
+<div class="mws-form-row">
+  <%= lf.label "Quantity to be donated" %>
+  <div class="mws-form-item small quantity">
+    <%= lf.text_field :quantity, class: "mws-textinput",autofocus: true %>
+    pounds
+  </div>
+</div>
+
+<div class="mws-form-row">
+  <%= lf.label "Picked on " %>
+  <div class="mws-form-item small date">
+    <%= lf.text_field :picked_date, class: "mws-datepicker mws-textinput" %>
+  </div>
+</div>
+
+<div class="mws-form-row">
+  <a href="javascript:void(0);" class="add">
+    add item
+  </a>
+
+  <a href="javascript:void(0);" class="remove">
+    remove item
+  </a>
+</div>
