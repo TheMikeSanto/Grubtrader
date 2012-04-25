@@ -10,6 +10,28 @@ roles = Role.create([{name: 'Administrator'}, {name: 'User'}])
 
 organization_roles = OrganizationRole.create([{name: "Producer"}, {name: "Distributor"}])
 
+me = User.create(fname: "Mike", lname: "Santo", password: 'asdf1234', 
+								password_confirmation: 'asdf1234', email: 'mike.j.santo@gmail.com',
+								phone: "4025154191", role_id: 1, organization_id: 3)
+
+users = User.create([
+										{	fname: "John", lname: "Doe", password: "asdf1234", 
+											password_confirmation: 'asdf1234', email: "john@doe.com", 
+											role_id: 2, organization_id: 4
+										},
+										{ fname: "Ann", lname: "Smith", password: "asdf1234",
+											password_confirmation: 'asdf1234', email: "jane@smith.com",
+											role_id: 2, organization_id: 1
+										},
+										{ fname: "Student", lname: "Tester", password: "asdf1234",
+											password_confirmation: 'asdf1234', email: "student@ops.edu",
+											role_id: 2, organization_id: 2
+										},
+										{ fname: "Teacher", lname: "Tester", password: "asdf1234",
+											password_confirmation: 'asdf1234', email: "teacher@ops.edu",
+											role_id: 2, organization_id: 2
+										}])
+
 organizations = Organization.create([{
 																			name: "Food Bank", 
 																			state: "NE", 
@@ -18,7 +40,8 @@ organizations = Organization.create([{
 																			zip: "68121", 
 																			email: "person@foodbank.com",
 																			phone: "7654321",
-																			role_id: 2
+																			role_id: 2,
+																			settings: {org_admin_ids: [User.find_by_fname("Ann").id]}
 																		},
 																		{
 																			name: "Blackburn",
@@ -28,7 +51,8 @@ organizations = Organization.create([{
 																			zip: "68154",
 																			email: "person@blackburn.com",
 																			phone: "1234567",
-																			role_id: 1
+																			role_id: 1,
+																			settings: {org_admin_ids: [User.find_by_fname("Teacher").id]}
 																		},
 																		{
 																			name: "Alternative Systems",
@@ -38,7 +62,8 @@ organizations = Organization.create([{
 																			zip: "68131",
 																			email: "mike.j.santo@gmail.com",
 																			phone: 5154191,
-																			role_id: 2
+																			role_id: 2,
+																			settings: {org_admin_ids: [me.id]}
 																	},
 																	{
 																		name: "Local Growers", 
@@ -46,26 +71,9 @@ organizations = Organization.create([{
 																		street: "1234 Fake St.", zip: "68131", 
 																		phone: "4021234567", 
 																		email: "john@doe.com", 
-																		role_id: 2
+																		role_id: 2,
+																		settings: {org_admin_ids: [User.find_by_fname("John").id]}
 																	}])
-
-me = User.create(fname: "Mike", lname: "Santo", password: 'asdf1234', 
-								password_confirmation: 'asdf1234', email: 'mike.j.santo@gmail.com',
-								phone: "4025154191", role_id: 1, organization_id: 3)
-
-users = User.create([
-										{	fname: "John", lname: "Doe", password: "asdf1234", 
-											password_confirmation: 'asdf1234', email: "john@doe.com", 
-											role_id: 2, organization_id: 3
-										},
-										{ fname: "Ann", lname: "Smith", password: "asdf1234",
-											password_confirmation: 'asdf1234', email: "jane@smith.com",
-											role_id: 2, organization_id: 1
-										},
-										{ fname: "Student", lname: "Tester", password: "asdf1234",
-											password_confirmation: 'asdf1234', email: "student@ops.edu",
-											role_id: 2, organization_id: 2
-										}])
 
 units = Unit.create([{name: "pounds"}, {name: "kilograms"}, {name: "ounces"}])
 

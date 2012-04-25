@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :lname
       t.string :email
       t.integer :phone
-      t.boolean :active
+      t.boolean :active, default: true
       t.integer :role_id
       t.integer :organization_id
 
