@@ -12,7 +12,8 @@
         <div class="mws-form-row">
           <label>Organization</label>
           <div class="mws-form-item small">
-            <%= f.select :organization_id,  options_for_organization_select, {}, { disabled: @user.organization.present? } %>
+            <% options = @user.organization.present? ? [[@user.organization.name, @user.organization.id]] : options_for_organization_select %>
+            <%= f.select :organization_id,  options  %>
 
             <% unless @user.organization.present? %>
               <div class="mws-info">

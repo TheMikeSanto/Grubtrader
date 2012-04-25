@@ -1,4 +1,5 @@
 class OrganizationsController < ApplicationController
+  before_filter :authenticate_user!, :except => [:new, :create]
   load_and_authorize_resource
   # GET /organizations
   # GET /organizations.json
@@ -22,7 +23,6 @@ class OrganizationsController < ApplicationController
   # GET /organizations/new.json
   def new
     @organization.role_id = OrganizationRole.producer_role_id
-    @organization.settings = {admin_role_ids: [current_user.id]}
 
     respond_to do |format|
       format.html # new.html.erb
@@ -39,7 +39,6 @@ class OrganizationsController < ApplicationController
   # POST /organizations.json
   def create
     @organization.role_id = OrganizationRole.producer_role_id
-    @organization.settings = {admin_role_ids: [current_user.id]}
 
     respond_to do |format|
       if @organization.save

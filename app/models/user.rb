@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   has_many :orders
 
   before_create :set_role_id
+  after_create :check_if_org_admin
 
   def name
   	fname + " " + lname
@@ -43,7 +44,14 @@ class User < ActiveRecord::Base
     organization.role.name
   end
   
+  private
+
   def set_role_id
     self.role_id = Role.user_role_id
+  end
+
+  def check_if_org_admin
+    return if organization.users.count > 1
+    organization.update_attributes(settings: {org_admin_ids: [id]})
   end
 end

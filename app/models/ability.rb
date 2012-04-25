@@ -4,8 +4,9 @@ class Ability
   def initialize(user)
     user ||= User.new # guest
 
-    can :create, Organization
-    can :create, User
+    can [:create, :new], Organization
+
+
     can [:read, :view], Organization
     can :read, User
     can :update, User, id: user.id
@@ -17,6 +18,8 @@ class Ability
     if user.is_producer?
       can :create, Donation
       can :manage, Donation, user: {organization_id: user.organization_id }
+      cannot :create, Organization
+      cannot :create, User
     end
 
     if user.is_distributor?
@@ -27,6 +30,8 @@ class Ability
       can :view, :inventory
       can :view, Product
       can :view, User
+      cannot :create, Organization
+      cannot :create, User
     end
 
     if user.is_org_admin?
