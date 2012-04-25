@@ -25,6 +25,10 @@ class User < ActiveRecord::Base
     role.present? and role.name == "Administrator"
   end
 
+  def is_org_admin?
+    organization.settings[:org_admin_ids].include? id 
+  end
+  
   def is_producer?
     organization.present? and organization.organization_role.name == "Producer"
   end
