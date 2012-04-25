@@ -10,28 +10,6 @@ roles = Role.create([{name: 'Administrator'}, {name: 'User'}])
 
 organization_roles = OrganizationRole.create([{name: "Producer"}, {name: "Distributor"}])
 
-me = User.create(fname: "Mike", lname: "Santo", password: 'asdf1234', 
-								password_confirmation: 'asdf1234', email: 'mike.j.santo@gmail.com',
-								phone: "4025154191", role_id: 1, organization_id: 3)
-
-users = User.create([
-										{	fname: "John", lname: "Doe", password: "asdf1234", 
-											password_confirmation: 'asdf1234', email: "john@doe.com", 
-											role_id: 2, organization_id: 4
-										},
-										{ fname: "Ann", lname: "Smith", password: "asdf1234",
-											password_confirmation: 'asdf1234', email: "jane@smith.com",
-											role_id: 2, organization_id: 1
-										},
-										{ fname: "Student", lname: "Tester", password: "asdf1234",
-											password_confirmation: 'asdf1234', email: "student@ops.edu",
-											role_id: 2, organization_id: 2
-										},
-										{ fname: "Teacher", lname: "Tester", password: "asdf1234",
-											password_confirmation: 'asdf1234', email: "teacher@ops.edu",
-											role_id: 2, organization_id: 2
-										}])
-
 organizations = Organization.create([{
 																			name: "Food Bank", 
 																			state: "NE", 
@@ -75,6 +53,27 @@ organizations = Organization.create([{
 																		settings: {org_admin_ids: [User.find_by_fname("John").id]}
 																	}])
 
+me = User.create(fname: "Mike", lname: "Santo", password: 'asdf1234', 
+								password_confirmation: 'asdf1234', email: 'mike.j.santo@gmail.com',
+								phone: "4025154191", role_id: 1, organization_id: 3)
+
+users = User.create([
+										{	fname: "John", lname: "Doe", password: "asdf1234", 
+											password_confirmation: 'asdf1234', email: "john@doe.com", 
+											role_id: 2, organization_id: 4
+										},
+										{ fname: "Ann", lname: "Smith", password: "asdf1234",
+											password_confirmation: 'asdf1234', email: "jane@smith.com",
+											role_id: 2, organization_id: 1
+										},
+										{ fname: "Student", lname: "Tester", password: "asdf1234",
+											password_confirmation: 'asdf1234', email: "student@ops.edu",
+											role_id: 2, organization_id: 2
+										},
+										{ fname: "Teacher", lname: "Tester", password: "asdf1234",
+											password_confirmation: 'asdf1234', email: "teacher@ops.edu",
+											role_id: 2, organization_id: 2
+										}])
 units = Unit.create([{name: "pounds"}, {name: "kilograms"}, {name: "ounces"}])
 
 product_categories = ProductCategory.create([{name: "fruit"}, {name: "vegetable"}])
