@@ -39,10 +39,6 @@ class User < ActiveRecord::Base
   end
   
   def set_role_id
-    if self.organization.users == 0
-      self.role_id = Role.admin_role_id
-    else
-      self.role_id = Role.user_role_id
-    end
+    self.role_id = Role.user_role_id
   end
 end
