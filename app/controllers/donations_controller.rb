@@ -1,9 +1,9 @@
 class DonationsController < ApplicationController
+  load_and_authorize_resource
+  skip_load_resource only: :create
   # GET /donations
   # GET /donations.json
   def index
-    @donations = Donation.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @donations }
@@ -13,8 +13,6 @@ class DonationsController < ApplicationController
   # GET /donations/1
   # GET /donations/1.json
   def show
-    @donation = Donation.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @donation }
@@ -24,7 +22,6 @@ class DonationsController < ApplicationController
   # GET /donations/new
   # GET /donations/new.json
   def new
-    @donation = Donation.new
     @donation.donation_lines.build
 
     respond_to do |format|
@@ -35,7 +32,7 @@ class DonationsController < ApplicationController
 
   # GET /donations/1/edit
   def edit
-    @donation = Donation.find(params[:id])
+    #@donation = Donation.find(params[:id])
   end
 
   # POST /donations
@@ -66,8 +63,6 @@ class DonationsController < ApplicationController
   # PUT /donations/1
   # PUT /donations/1.json
   def update
-    @donation = Donation.find(params[:id])
-
     respond_to do |format|
       if @donation.update_attributes(params[:donation])
         format.html { redirect_to @donation, notice: 'Donation was successfully updated.' }
@@ -82,7 +77,6 @@ class DonationsController < ApplicationController
   # DELETE /donations/1
   # DELETE /donations/1.json
   def destroy
-    @donation = Donation.find(params[:id])
     @donation.destroy
 
     respond_to do |format|

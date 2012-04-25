@@ -1,9 +1,9 @@
 class OrdersController < ApplicationController
+  load_and_authorize_resource
+  skip_load_resource only: :create
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @orders }
@@ -13,8 +13,6 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
-    @order = Order.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @order }
@@ -24,7 +22,6 @@ class OrdersController < ApplicationController
   # GET /orders/new
   # GET /orders/new.json
   def new
-    @order = Order.new
     @order.order_lines.build
 
     respond_to do |format|
@@ -35,7 +32,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
-    @order = Order.find(params[:id])
+    #@order = Order.find(params[:id])
   end
 
   # POST /orders
@@ -66,8 +63,6 @@ class OrdersController < ApplicationController
   # PUT /orders/1
   # PUT /orders/1.json
   def update
-    @order = Order.find(params[:id])
-
     respond_to do |format|
       if @order.update_attributes(params[:order])
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
@@ -82,16 +77,11 @@ class OrdersController < ApplicationController
   # DELETE /orders/1
   # DELETE /orders/1.json
   def destroy
-    @order = Order.find(params[:id])
     @order.destroy
 
     respond_to do |format|
       format.html { redirect_to orders_url }
       format.json { head :ok }
     end
-  end
-
-  def match
-    @order = Order.find(params[:id])
   end
 end
