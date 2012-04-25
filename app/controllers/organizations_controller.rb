@@ -1,9 +1,8 @@
 class OrganizationsController < ApplicationController
+  load_and_authorize_resource
   # GET /organizations
   # GET /organizations.json
   def index
-    @organizations = Organization.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @organizations }
@@ -13,8 +12,6 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1
   # GET /organizations/1.json
   def show
-    @organization = Organization.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @organization }
@@ -24,7 +21,8 @@ class OrganizationsController < ApplicationController
   # GET /organizations/new
   # GET /organizations/new.json
   def new
-    @organization = Organization.new(role_id: OrganizationRole.producer_role_id)
+    @organization.role_id = OrganizationRole.producer_role_id
+    @organization.settings = {admin_role_ids: [current_user.id]}
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +32,14 @@ class OrganizationsController < ApplicationController
 
   # GET /organizations/1/edit
   def edit
-    @organization = Organization.find(params[:id])
+    #@organization = Organization.find(params[:id])
   end
 
   # POST /organizations
   # POST /organizations.json
   def create
-    @organization = Organization.new(params[:organization].merge!({role_id: OrganizationRole.producer_role_id}))
+    @organization.role_id = OrganizationRole.producer_role_id
+    @organization.settings = {admin_role_ids: [current_user.id]}
 
     respond_to do |format|
       if @organization.save
@@ -64,8 +63,6 @@ class OrganizationsController < ApplicationController
   # PUT /organizations/1
   # PUT /organizations/1.json
   def update
-    @organization = Organization.find(params[:id])
-
     respond_to do |format|
       if @organization.update_attributes(params[:organization])
         format.html { redirect_to @organization, notice: 'Organization was successfully updated.' }
@@ -80,7 +77,6 @@ class OrganizationsController < ApplicationController
   # DELETE /organizations/1
   # DELETE /organizations/1.json
   def destroy
-    @organization = Organization.find(params[:id])
     @organization.destroy
 
     respond_to do |format|
