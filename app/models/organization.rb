@@ -4,10 +4,16 @@ class Organization < ActiveRecord::Base
 
 	validates_presence_of :phone, :state, :city, :street, :zip, :email, :name, :role_id
 
+	serialize :settings
+
 	def role
 		organization_role
 	end
 
+	def admins
+		User.where(id: settings[:org_admin_ids])
+	end
+	
 	def address
 		street + " " + city + ", " + state + " " + zip
 	end
