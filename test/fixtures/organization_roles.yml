@@ -4,4 +4,4 @@ one:
   name: Producer
 
 two:
-  name: Consumer
+  name: Distributor

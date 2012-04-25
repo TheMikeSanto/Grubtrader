@@ -4,11 +4,15 @@ class ProductsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
   setup do
-    @user = users(:user1)
+    @user = users(:admin1)
     @organization = organizations(:one)
-    @user.update_attribute(:organization_id, @organization.id)
+    @user.update_attributes(organization_id: @organization.id)
     sign_in @user
     @product = products(:one)
+  end
+
+  test "signed in user should be an admin" do
+    assert @user.is_admin?
   end
 
   test "should get index" do
@@ -43,13 +47,5 @@ class ProductsControllerTest < ActionController::TestCase
   test "should update product" do
     put :update, id: @product.to_param, product: @product.attributes
     assert_redirected_to product_path(assigns(:product))
-  end
-
-  test "should destroy product" do
-    assert_difference('Product.count', -1) do
-      delete :destroy, id: @product.to_param
-    end
-
-    assert_redirected_to products_path
   end
 end

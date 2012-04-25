@@ -5,8 +5,9 @@ class OrdersControllerTest < ActionController::TestCase
 
   setup do
     @user = users(:user1)
-    @organization = organizations(:one)
+    @organization = organizations(:two)
     @user.update_attribute(:organization_id, @organization.id)
+    @organization.update_attributes(settings: {org_admin_ids: [@user.id]})
     sign_in @user
     @order = orders(:one)
   end
@@ -43,13 +44,5 @@ class OrdersControllerTest < ActionController::TestCase
   test "should update order" do
     put :update, id: @order.to_param, order: @order.attributes
     assert_redirected_to order_path(assigns(:order))
-  end
-
-  test "should destroy order" do
-    assert_difference('Order.count', -1) do
-      delete :destroy, id: @order.to_param
-    end
-
-    assert_redirected_to orders_path
   end
 end

@@ -26,20 +26,21 @@ class User < ActiveRecord::Base
   end
 
   def is_org_admin?
-    organization.settings[:org_admin_ids].include? id 
+    return false unless organization.present?
+    organization.settings.present? and organization.settings[:org_admin_ids].present? and organization.settings[:org_admin_ids].include?(id)
   end
-  
+
   def is_producer?
-    organization.present? and organization.organization_role.name == "Producer"
+    organization.present? and organization.role.name == "Producer"
   end
 
   def is_distributor?
-    organization.present? and organization.organization_role.name == "Distributor"
+    organization.present? and organization.role.name == "Distributor"
   end
 
   def supply_role
     return nil unless organization.present?
-    organization.organization_role.name
+    organization.role.name
   end
   
   def set_role_id

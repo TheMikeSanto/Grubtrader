@@ -4,7 +4,7 @@ class DonationsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
   setup do
-    @user = users(:user1)
+    @user = users(:user2)
     sign_in @user
     @donation = donations(:one)
     @donation_line = donation_lines(:one)
@@ -47,13 +47,5 @@ class DonationsControllerTest < ActionController::TestCase
   test "should update donation" do
     put :update, id: @donation.to_param, donation: @donation.attributes
     assert_redirected_to donation_path(assigns(:donation))
-  end
-
-  test "should destroy donation" do
-    assert_difference('Donation.count', -1) do
-      delete :destroy, id: @donation.to_param
-    end
-
-    assert_redirected_to donations_path
   end
 end

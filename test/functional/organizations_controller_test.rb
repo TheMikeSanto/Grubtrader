@@ -5,10 +5,10 @@ class OrganizationsControllerTest < ActionController::TestCase
 
   setup do
     @user = users(:user1)
-    @organization = organizations(:one)
+    @organization = organizations(:two)
     @user.update_attribute(:organization_id, @organization.id)
+    @organization.update_attributes(settings: {org_admin_ids: [@user.id]})
     sign_in @user
-    @organizations = organizations(:one)
   end
   
   test "should get index" do
@@ -43,13 +43,5 @@ class OrganizationsControllerTest < ActionController::TestCase
   test "should update organization" do
     put :update, id: @organization.to_param, organization: @organization.attributes
     assert_redirected_to organization_path(assigns(:organization))
-  end
-
-  test "should destroy organization" do
-    assert_difference('Organization.count', -1) do
-      delete :destroy, id: @organization.to_param
-    end
-
-    assert_redirected_to organizations_path
   end
 end
