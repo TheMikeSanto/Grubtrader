@@ -22,8 +22,7 @@ class UserTest < ActiveSupport::TestCase
 		assert !user.save
 	end
 
-	test "should not be readable or editable by another non-admin user" do
-		assert @user1_ability.cannot?(:read, @user2)
+	test "should not be editable by another non-admin user" do
 		assert @user1_ability.cannot?(:update, @user2)
 	end
 

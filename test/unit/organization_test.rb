@@ -13,15 +13,12 @@ class OrganizationTest < ActiveSupport::TestCase
 		@admin_ability = Ability.new(@admin)
 
 		@organization = organizations(:one)
+		@organization.update_attributes(settings: {org_admin_ids: [@user2.id]})
 	end
 
 	test "should be creatable and readable by anyone" do
 		assert @guest_ability.can?(:read, @organization)
 		assert @guest_ability.can?(:create, Organization)
-	end
-
-	test "should only be updateable by someone in the organization" do
-		assert @user2_ability.can?(:update, @organization)
 	end
 
 	test "should not be updateable by someone not in the organization" do
@@ -35,7 +32,6 @@ class OrganizationTest < ActiveSupport::TestCase
 
 	test "should be completely accessible to admins" do
 		assert @admin_ability.can?(:update, @organization)
-		assert @admin_ability.can?(:destroy, @organization)
 		assert @admin_ability.can?(:read, @organization)
 	end
 end
