@@ -25,10 +25,10 @@ class Ability
     if user.is_distributor?
       can :create, Order
       can :manage, Order, user: {organization_id: user.organization_id}
-      can :view, Donation
+      can [:view, :index, :show], Donation
       can :manage, Report
       can :view, :inventory
-      can :manage, Product
+      can [:view, :index, :show], Product
       can :view, User
       cannot :create, Organization
       cannot :create, User
@@ -38,6 +38,7 @@ class Ability
       can :update, Organization, id: user.organization_id
       can :update, User, organization_id: user.organization_id
       can :view,   User
+      can :manage, Product
     end
 
     if user.is_org_admin? && user.is_distributor?
