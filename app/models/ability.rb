@@ -28,7 +28,7 @@ class Ability
       can :view, Donation
       can :manage, Report
       can :view, :inventory
-      can :view, Product
+      can :manage, Product
       can :view, User
       cannot :create, Organization
       cannot :create, User
