@@ -1,4 +1,8 @@
 Foodbank::Application.configure do
+  ENV['GMAIL_SMTP_USER'] = "slafoodbank@gmail.com"
+  ENV['GMAIL_SMTP_PASS'] = "foodbankemail"
+
+  config.action_mailer.default_url_options = {host: "freshfoodomaha.com"}
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
