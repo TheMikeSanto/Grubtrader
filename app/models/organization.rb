@@ -3,6 +3,8 @@ class Organization < ActiveRecord::Base
 	belongs_to :organization_role, foreign_key: :role_id
 
 	validates_presence_of :phone, :state, :city, :street, :zip, :email, :name, :role_id
+	validates :phone, phone_number_legit: true
+	validates :zip, zip_code_legit: true
 
 	serialize :settings
 

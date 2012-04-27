@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
                   :phone, :active, :role_id, :organization_id
 
   validates_presence_of :email, :fname, :lname, :organization_id
+  validates :phone, phone_number_legit: true
 
   belongs_to :role
   belongs_to :organization
