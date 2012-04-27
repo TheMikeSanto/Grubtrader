@@ -2,6 +2,8 @@ class Product < ActiveRecord::Base
 	belongs_to :product_category
 	belongs_to :unit
 
+	validates_uniqueness_of :name
+
 	def full_shelf_life
 		shelf_life_time.to_s + " " + shelf_life_span
 	end
