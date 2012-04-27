@@ -3,6 +3,8 @@ class DonationLine < ActiveRecord::Base
 	belongs_to :product
 	has_one :unit, through: :product
 	scope :available, conditions: {inventory_id: nil}
+	scope :by_product, lambda { |product| {
+		conditions: { product_id: product.id } } }
 
 	default_scope order('created_at ASC')
 
@@ -23,6 +25,10 @@ class DonationLine < ActiveRecord::Base
 	def convert_date_to_datetime
 		return if picked_date.is_a? ActiveSupport::TimeWithZone
 		picked_date = DateTime.parse(picked_date_before_type_cast)
+	end
+
+	def ordered?
+		inventory_id != nil
 	end
 
 	def expires_at

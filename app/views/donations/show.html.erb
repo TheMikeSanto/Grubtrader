@@ -61,17 +61,22 @@
           <th>Amount</th>
           <th>Date picked</th>
           <th>Date expires</th>
+          <th>Order status</th>
         </tr>
       </thead>
         <tbody>
           <% @donation.products.each do |product| %>
+          	<% product_line = @donation.product_line(product) %>
             <tr class="gradeX">
               <td><%= product.name %></td>
               <td>
               	<%= @donation.total_product_quantity(product) %> <%= product.unit.name %>
               </td>
-              <td><%= formatted_date(@donation.donation_lines.where(product_id: product.id).first.picked_date) %></td>
-              <td><%= formatted_date(@donation.donation_lines.where(product_id: product.id).first.expires_at) %></td>
+              <td><%= formatted_date(product_line.picked_date) %></td>
+              <td><%= formatted_date(product_line.expires_at) %></td>
+              <td>
+              	<%= product_line.ordered? ? "Ordered" : "Available" %>
+            	</td>
             </tr>
           <% end %>
         </tbody>

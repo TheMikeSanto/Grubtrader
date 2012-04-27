@@ -31,4 +31,8 @@ class Donation < ActiveRecord::Base
 		end
 		expired
 	end
+
+	def product_line(product)
+		donation_lines.by_product(product).first
+	end
 end
