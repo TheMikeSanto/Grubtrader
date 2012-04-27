@@ -6,7 +6,6 @@ class Ability
 
     can [:create, :new], Organization
 
-
     can [:read, :view], Organization
     can :read, User
     can :update, User, id: user.id

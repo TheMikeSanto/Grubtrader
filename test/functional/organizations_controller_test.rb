@@ -18,16 +18,16 @@ class OrganizationsControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
+    sign_out @user
     get :new
     assert_response :success
   end
 
   test "should create organization" do
+    sign_out @user
     assert_difference('Organization.count') do
       post :create, organization: @organization.attributes
     end
-
-    assert_redirected_to organization_path(assigns(:organization))
   end
 
   test "should show organization" do

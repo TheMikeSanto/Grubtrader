@@ -1,8 +1,15 @@
 Foodbank::Application.configure do
-  ENV['GMAIL_SMTP_USER'] = "slafoodbank@gmail.com"
-  ENV['GMAIL_SMTP_PASS'] = "foodbankemail"
-
+  
   config.action_mailer.default_url_options = {host: "freshfoodomaha.com"}
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: 'gmail.com',
+    authentication: 'plain',
+    user_name: 'slafoodbank@gmail.com',
+    password: 'foodbankemail'
+  }
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
