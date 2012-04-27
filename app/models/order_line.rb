@@ -8,8 +8,6 @@ class OrderLine < ActiveRecord::Base
 	end
 
 	def donation_line
-		logger.info("ORDER_LINE: #{id}")
-		logger.info(
-		Inventory.find_by_order_line_id(id).donation_lines.first)
+		Inventory.find_by_order_line_id(id).donation_lines.first
 	end
 end
