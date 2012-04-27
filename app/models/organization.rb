@@ -19,4 +19,26 @@ class Organization < ActiveRecord::Base
 	def address
 		street + " " + city + ", " + state + " " + zip
 	end
+
+	def is_producer?
+		role.name == "Producer"
+	end
+
+	def is_distributor?
+		role.name == "Distributor"
+	end
+
+	def transaction_count
+		if is_producer?
+			transactions = users.map{ |user| user.donations }
+		elsif is_distributor?
+			transactions = users.map{ |user| user.orders }
+		end
+
+		count = 0
+		transactions.each do |t|
+			count += t.length
+		end
+		count
+	end
 end

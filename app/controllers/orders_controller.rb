@@ -2,8 +2,7 @@ class OrdersController < ApplicationController
   before_filter :authenticate_user!
   load_and_authorize_resource
   skip_load_resource only: :create
-  # GET /orders
-  # GET /orders.json
+
   def index
     respond_to do |format|
       format.html # index.html.erb
@@ -11,8 +10,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  # GET /orders/1
-  # GET /orders/1.json
   def show
     respond_to do |format|
       format.html # show.html.erb
@@ -20,8 +17,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  # GET /orders/new
-  # GET /orders/new.json
   def new
     @order.order_lines.build
 
@@ -31,14 +26,13 @@ class OrdersController < ApplicationController
     end
   end
 
-  # GET /orders/1/edit
   def edit
     #@order = Order.find(params[:id])
   end
 
-  # POST /orders
-  # POST /orders.json
   def create
+    # TODO - fix this
+    # Hacky way of deleting empty order lines when an order comes in
     if params[:order][:order_lines_attributes]
       params[:order][:order_lines_attributes].each do |ol|
         if ol[1][:product_id] == "" || ol[1][:quantity_requested] == ""
@@ -61,8 +55,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  # PUT /orders/1
-  # PUT /orders/1.json
   def update
     respond_to do |format|
       if @order.update_attributes(params[:order])
@@ -75,8 +67,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  # DELETE /orders/1
-  # DELETE /orders/1.json
   def destroy
     @order.destroy
 
