@@ -42,3 +42,9 @@
     <% end %>
   </div>
 </div>
+
+<div style="display: none;">
+  <% Product.scoped.each do |p| %>
+    <span id="<%= p.name %>" data-unit="<%= p.unit.name %>"></span>
+  <% end %>
+</div>
