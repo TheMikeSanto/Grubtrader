@@ -72,6 +72,7 @@ class Order < ActiveRecord::Base
 					end
 				end
 			end
+			return true
 		end
 	end
 end

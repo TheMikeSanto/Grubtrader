@@ -13,6 +13,7 @@ class OrderMailer < ActionMailer::Base
   	@donor = @donation.user
   	@order = order
 
-  	mail(to: @donor.email, subject: "An item you donated needs pickup - Donation ##{@donation.id})")
+  	mail(to: @donor.email, subject: "An item you donated needs pickup - Donation ##{@donation.id}")
+    mail(to: @donor.organization.email, subject: "An item you donated needs pickup - Donation ##{@donation.id})")
 	end
 end
