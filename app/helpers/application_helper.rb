@@ -13,7 +13,11 @@ module ApplicationHelper
 	end
 	
 	def options_for_organization_select
-		Organization.scoped.map{ |org| [org.name, org.id]}
+		options = [["Select organization", ""]]
+		Organization.scoped.each do |org|
+			options << [org.name, org.id]
+		end
+		options
 	end
 
 	def options_for_product_select
