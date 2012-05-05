@@ -38,6 +38,12 @@
             <%= f.text_field :email, class: "mws-textinput" %>
           </div>
         </div>
+        <div class="mws-form-row">
+          <%= f.label "Phone" %>
+          <div class="mws-form-item small">
+            <%= f.text_field :phone, class: "mws-textinput" %>
+          </div>
+        </div>
 
         <% if current_user.is_admin? %>
           <div class="mws-form-row">
