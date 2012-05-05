@@ -6,7 +6,7 @@
       <%= link_to "view", object, class: "view" %>
     <% end %>
 
-    <% if can? :update, object %>
+    <% if can? :edit, object %>
       <a href="/<%= object_type.pluralize %>/<%= object.id %>/edit" class='edit'>edit</a>
     <% end %>
 
