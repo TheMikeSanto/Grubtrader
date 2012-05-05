@@ -51,5 +51,7 @@ class Ability
     cannot [:update, :destroy, :create], Role
     cannot [:update, :destroy, :create], OrganizationRole
     cannot :destroy, :all
+    cannot [:edit, :destroy], Order
+    cannot [:edit, :destroy], Donation
   end
 end
