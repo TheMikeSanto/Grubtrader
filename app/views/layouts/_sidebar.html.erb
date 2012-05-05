@@ -34,7 +34,7 @@
       <% end %>
 
       <% if can? :view, Report %>
-        <li class="<%= active_page_class("reports") %>"><%= link_to "Reports", new_report_path, class: "mws-i-24 i-graph" %></li>
+        <li class="<%= active_page_class("reports") %>"><%= link_to "Reports", reports_path, class: "mws-i-24 i-graph" %></li>
       <% end %>
     </ul>
   </div>            
