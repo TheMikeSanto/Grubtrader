@@ -9,6 +9,6 @@ class OrderLine < ActiveRecord::Base
 	end
 
 	def donation_line
-		inventory.donation_lines.first
+		inventory.donation_line
 	end
 end

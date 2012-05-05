@@ -1,16 +1,13 @@
 class OrderObserver < ActiveRecord::Observer 
 	def after_create(order)
-		if order.create_inventory
-			OrderMailer.order_confirmation(order).deliver
+		# Notify donators
+		order.order_lines.each do |line|
+			order.create_inventory(line)
+			line.reload
 
-			# Notify donators
-			order.order_lines.each do |line|
-				donations = Inventory.find_by_order_line_id(line.id).donation_lines
-				Rails.logger.info(donations.inspect)
-				donations.each do |donation|
-					OrderMailer.notify_donor(order, donation).deliver
-				end
-			end
+			donation = line.inventory.donation_line
+			OrderMailer.notify_donor(order, donation).deliver
 		end
+		OrderMailer.order_confirmation(order).deliver
 	end
 end
