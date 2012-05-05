@@ -1,6 +1,6 @@
 <div class="mws-panel grid_5 center-panel">
   <div class="mws-panel-header">
-    <span class="mws-i-24 i-leaf">
+    <span class="mws-i-24 ileaf">
       <%= @user.new_record? ? "Add user" : "Edit " + @user.name %>
     </span>
   </div>
@@ -41,7 +41,7 @@
         <div class="mws-form-row">
           <%= f.label "Phone" %>
           <div class="mws-form-item small">
-            <%= f.text_field :phone, class: "mws-textinput" %>
+            <%= f.telephone_field :phone, class: "mws-textinput", maxlength: 10 %>
           </div>
         </div>
 
