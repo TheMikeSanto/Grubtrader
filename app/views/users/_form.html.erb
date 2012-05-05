@@ -60,7 +60,9 @@
 
         <div class="mws-button-row">
           <% button_message = @user.new_record? ? "Add user" : "Save changes" %>
-          <%= f.submit button_message, class: "mws-button red" %>
+          <a href="javascript:void(0);" class="mws-button red submit">
+            <%= button_message %>
+          </a>
         </div>
       </div>
     <% end %>

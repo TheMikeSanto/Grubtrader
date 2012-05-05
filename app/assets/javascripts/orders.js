@@ -21,7 +21,19 @@ $(document).ready(function(){
 		}
 
 		visible.last().find(".add").show(); // We always want the add button visible on the last line
+
 	});
+
+	submitted = false;
+	$("#new_order").submit(function(ev) {
+		if (submitted == false) {
+			ev.preventDefault();
+			$("#confirmation").dialog({title: "Confirm Order",
+																	width: "400px", 
+																	modal: true });
+			submitted = true;
+		} 
+	})
 });
 
 $("#new_order select").change(function() {
